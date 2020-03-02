@@ -10,6 +10,8 @@ import { SplitAsinComponent } from './split-asin/split-asin.component';
 import { JoinAsinComponent } from './join-asin/join-asin.component';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,8 @@ import { JoinAsinComponent } from './join-asin/join-asin.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
