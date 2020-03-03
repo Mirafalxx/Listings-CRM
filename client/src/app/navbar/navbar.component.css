@@ -1,8 +1,7 @@
 .navigation-menu {
-  margin-left: 200px;
-  float: left;
   display: flex;
   align-items: center;
+  justify-content: center;
   min-height: 90px;
 }
 

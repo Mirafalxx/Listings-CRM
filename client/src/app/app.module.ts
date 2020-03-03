@@ -8,6 +8,7 @@ import { AddAsinComponent } from './add-asin/add-asin.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SplitAsinComponent } from './split-asin/split-asin.component';
 import { JoinAsinComponent } from './join-asin/join-asin.component';
+import { AuthorizationComponent } from './authorization/authorization.component';
 
 
 
@@ -20,6 +21,7 @@ import { JoinAsinComponent } from './join-asin/join-asin.component';
     PageNotFoundComponent,
     SplitAsinComponent,
     JoinAsinComponent,
+    AuthorizationComponent,
 
   ],
   imports: [
