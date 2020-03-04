@@ -1,68 +1,60 @@
-* {
-  box-sizing: border-box;
-}
-
 .authorization-block {
-  margin-top: 30px;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-  overflow: auto;
-}
-
-.authorization-form {
-  background: #9152f8;
-  background: linear-gradient(top, #7579ff, #b224ef);
-  width: 502px;
-  height: 679px;
-  border-radius: 10px;
-}
-
-.authorization-form-title {
-  margin-top: 180px;
-  text-transform: uppercase;
-  color: #ffffff;
-  font-size: 29px;
-  display: block;
+  width: 440px;
+  height: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 15px;
+  transform: translate(-50%, -50%);
+  background-color: #191919;
   text-align: center;
-  margin-bottom: 40px;
 }
 
-::placeholder {
-  color: #fdfcfa;
-  font-size: 17px;
+.authorization-block p {
+  color: white;
+  text-transform: uppercase;
+  margin-top: 120px;
+
+  font-weight: 500;
 }
 
-.input-field {
-  display: block;
+.authorization-block input[type="text"],
+.authorization-block input[type="password"] {
+  border: 0;
   background: none;
-  border: none;
-  box-shadow: inset 0px 3px 10px rgba(199, 199, 199, 0.25);
-  border-radius: 5px;
-  padding: 18px 20px;
-  padding-left: 50px;
-  margin: 0 auto;
-  width: 378px;
-  font-size: 14px;
-  line-height: 28px;
-
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #3498db;
+  padding: 14px 10px;
+  width: 200px;
+  outline: none;
+  padding: 14px 40px;
+  color: white;
+  border-radius: 20px;
+  transition: 0.25s;
 }
 
-.input-login {
-  margin-bottom: 40px;
+.authorization-block input[type="text"]:focus,
+.authorization-block input[type="password"]:focus {
+  width: 280px;
 }
 
-.login-button {
-  padding: 12px 20px;
-  margin: 0 auto;
-  border-radius: 10px;
-
+.authorization-block input[type="submit"] {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #2ecc71;
+  padding: 14px 40px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
 }
 
-/* .input-login {
-  background-image: url(/client/src/assets/icons/user-icon.svg);
-  background-repeat: no-repeat;
-} */
+.authorization-block [type="submit"]:hover {
+  background: #2ecc71;
+}

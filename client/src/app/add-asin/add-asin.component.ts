@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from "@angular/common/http"
 
 @Component({
   selector: 'app-add-asin',
@@ -6,8 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-asin.component.css']
 })
 export class AddAsinComponent implements OnInit {
+  asing: string = '';
+  productName: string = ''
 
-  constructor() { }
+  constructor(private http: HttpClient) {
+
+
+  }
 
   ngOnInit() {
   }
