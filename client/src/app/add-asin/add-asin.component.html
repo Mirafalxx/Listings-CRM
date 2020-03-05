@@ -1,7 +1,11 @@
 <div>it works</div>
 <div class="test">
-  <input type="text" name="" placeholder="ASIN" />
-  <input type="text" name="" placeholder="Название товара" />
-  <button (click)="myEvent($event)">Event</button>
-
+  <input type="text" placeholder="ASIN" [(ngModel)]="listingData.Product_ASIN" />
+  <input type="text" placeholder="Название товара" [(ngModel)]="listingData.Product_name" />
+  <button (click)="addAsin()">Event</button>
 </div>
+<!-- <input type="text" [(ngModel)]="userName">
+<button (click)="search()">Search</button>
+<div *ngIf="response">
+  <img src="{{response.avatar_url}}" alt="">
+</div> -->
