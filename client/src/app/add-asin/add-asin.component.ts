@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from "@angular/common/http"
-import { NewServiceService } from '../new-service.service';
+
 
 @Component({
   selector: 'app-add-asin',
@@ -8,29 +9,41 @@ import { NewServiceService } from '../new-service.service';
   styleUrls: ['./add-asin.component.css']
 })
 export class AddAsinComponent implements OnInit {
-  listingData = {
-    Product_ASIN: '',
-    Product_name: ''
-  }
+  myForm: FormGroup;
   response: any;
-  constructor(private http: HttpClient) {
-
-  }
-  // search() {
-  //   this.http.get('https://api.github.com/users/' + this.userName)
-  //     .subscribe((response) => {
-  //       this.response = response;
-  //       console.log(this.response);
-  //     })
+  // listingData = {
+  //   Product_ASIN: '',
+  //   Product_name: ''
   // }
-  addAsin() {
-    this.http.post('http://localhost:3000/api/addListing', this.listingData).subscribe((response) => {
-      this.response = response;
-      console.log(this.response)
-    })
-  }
 
+  constructor(private http: HttpClient, private fb: FormBuilder) {
+  }
   ngOnInit() {
+    this.myForm = this.fb.group({
+      asin: ['', [
+        Validators.required,
+        Validators.minLength(10),
+      ]],
+      password: ['', [
+        Validators.required,
+        Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$')
+      ]],
+
+    });
   }
 
+  get asin() {
+    return this.myForm.get('asin');
+  }
+  // addAsin() {
+  //   this.http.post('http://localhost:3000/api/addListing', this.listingData).subscribe((response) => {
+  //     this.response = response;
+  //     console.log(this.response)
+  //   })
+  // }
+
+
+  get ProductAsin() {
+    return this.myForm.get('asin');
+  }
 }

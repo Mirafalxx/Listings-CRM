@@ -5,6 +5,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { JoinAsinComponent } from './join-asin/join-asin.component';
 import { SplitAsinComponent } from './split-asin/split-asin.component';
 import { AuthorizationComponent } from './authorization/authorization.component';
+import { TestValidationComponent } from './test-validation/test-validation.component';
 
 
 
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'join-asin', component: JoinAsinComponent },
   { path: 'split-asin', component: SplitAsinComponent },
   { path: 'authorization', component: AuthorizationComponent },
+  { path: 'test', component: TestValidationComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

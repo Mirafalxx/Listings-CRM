@@ -1,11 +1,32 @@
-<div>it works</div>
-<div class="test">
-  <input type="text" placeholder="ASIN" [(ngModel)]="listingData.Product_ASIN" />
-  <input type="text" placeholder="Название товара" [(ngModel)]="listingData.Product_name" />
-  <button (click)="addAsin()">Event</button>
-</div>
-<!-- <input type="text" [(ngModel)]="userName">
-<button (click)="search()">Search</button>
-<div *ngIf="response">
-  <img src="{{response.avatar_url}}" alt="">
-</div> -->
+<form [formGroup]="myForm">
+  <div class="bg-contact2">
+    <div class="container-contact2">
+      <div class="wrap-contact2">
+        <span class="contact2-form-title">
+          Добавление товара
+        </span>
+        <mat-form-field class="example-full-width asin-input">
+          <mat-label>ASIN</mat-label>
+          <input matInput placeholder="B012BKZC86" autocomplete="off" formControlName="asin">
+        </mat-form-field>
+        <span *ngIf="asin.invalid && asin.touched">
+          Your asin does not look right
+        </span>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Product name</mat-label>
+          <input matInput placeholder="SMITH & WESSON SWEX2S Extreme Ops. Knife with 40% Serrated Drop Point Blade"
+            autocomplete="off">
+        </mat-form-field>
+        <div class="container-contact2-form-btn">
+          <div class="wrap-contact2-form-btn">
+            <div class="contact2-form-bgbtn"></div>
+            <button class="contact2-form-btn" (click)="addAsin()" [disabled]="myForm.invalid">
+              Добавить
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
