@@ -216,9 +216,10 @@ iframe {
   min-width: 244px;
   height: 50px;
   font-family: Poppins-Medium;
-  font-size: 16px;
+  font-size: 14px;
   color: #fff;
   line-height: 1.2;
+  text-transform: uppercase;
 
 
 }

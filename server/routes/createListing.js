@@ -13,15 +13,15 @@ router.post("/", async (req, res) => {
   console.log("Add new listing", req.body);
   try {
     let {
-      Product_ASIN,
-      Product_name
+      ProductASIN,
+      ProductName
 
     } = req.body;
 
-    if (Product_ASIN && Product_name) {
+    if (ProductASIN && ProductName) {
       const response = await Listing.create({
-        Product_ASIN,
-        Product_name
+        ProductASIN,
+        ProductName
       });
 
       if (response) res.status(200).send({

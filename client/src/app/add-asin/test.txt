@@ -2,38 +2,35 @@
   <div class="bg-contact2">
     <div class="container-contact2">
       <div class="wrap-contact2">
-        <form class="contact2-form validate-form">
-          <span class="contact2-form-title">
-            Добавление товара
-          </span>
 
-          <mat-form-field class="example-full-width">
-            <mat-label>ASIN</mat-label>
-            <input matInput placeholder="B012BKZC86" autocomplete="off" [(ngModel)]="listingData.Product_ASIN"
-              name="ASIN" formControlName="Product_ASIN">
-            <span *ngIf="Product_ASIN.invalid && Product_ASIN.touched">
-              Your asin does not look right
-            </span>
-          </mat-form-field>
+        <span class="contact2-form-title">
+          Добавление товара
+        </span>
 
+        <mat-form-field class="example-full-width asin-input">
+          <mat-label>ASIN</mat-label>
+          <input matInput placeholder="B012BKZC86" autocomplete="off" formControlName="ProductASIN">
+        </mat-form-field>
 
-          <mat-form-field class="example-full-width">
-            <mat-label>Product name</mat-label>
-            <input matInput placeholder="SMITH & WESSON SWEX2S Extreme Ops. Knife with 40% Serrated Drop Point Blade"
-              autocomplete="off" [(ngModel)]="listingData.Product_name" name="Product">
-          </mat-form-field>
+        <span *ngIf="ProductASIN.invalid && ProductASIN.touched">
+          Your ASIN does not look right
+        </span>
 
 
+        <mat-form-field class="example-full-width">
+          <mat-label>Product name</mat-label>
+          <input matInput placeholder="SMITH & WESSON SWEX2S Extreme Ops. Knife with 40% Serrated Drop Point Blade"
+            autocomplete="off" formControlName="ProductName">
+        </mat-form-field>
 
-          <div class="container-contact2-form-btn">
-            <div class="wrap-contact2-form-btn">
-              <div class="contact2-form-bgbtn"></div>
-              <button class="contact2-form-btn" (click)="addAsin()">
-                Добавить
-              </button>
-            </div>
+        <div class="container-contact2-form-btn">
+          <div class="wrap-contact2-form-btn">
+            <div class="contact2-form-bgbtn"></div>
+            <button class="contact2-form-btn" (click)="addAsin()" [disabled]="myForm.invalid">
+              Добавить
+            </button>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   </div>

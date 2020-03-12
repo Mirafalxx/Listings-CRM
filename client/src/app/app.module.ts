@@ -12,7 +12,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations'
 import { MatInputModule } from '@angular/material/input';
-import { TestValidationComponent } from './test-validation/test-validation.component'
 
 @NgModule({
   declarations: [
@@ -23,7 +22,6 @@ import { TestValidationComponent } from './test-validation/test-validation.compo
     SplitAsinComponent,
     JoinAsinComponent,
     AuthorizationComponent,
-    TestValidationComponent,
   ],
   imports: [
     BrowserModule,

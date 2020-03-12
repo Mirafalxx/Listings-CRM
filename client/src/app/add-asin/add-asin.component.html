@@ -2,22 +2,27 @@
   <div class="bg-contact2">
     <div class="container-contact2">
       <div class="wrap-contact2">
+
         <span class="contact2-form-title">
           Добавление товара
         </span>
+
         <mat-form-field class="example-full-width asin-input">
           <mat-label>ASIN</mat-label>
-          <input matInput placeholder="B012BKZC86" autocomplete="off" formControlName="asin">
+          <input matInput placeholder="B012BKZC86" autocomplete="off" formControlName="ProductASIN">
         </mat-form-field>
+
         <span *ngIf="asin.invalid && asin.touched">
           Your asin does not look right
         </span>
 
+
         <mat-form-field class="example-full-width">
           <mat-label>Product name</mat-label>
           <input matInput placeholder="SMITH & WESSON SWEX2S Extreme Ops. Knife with 40% Serrated Drop Point Blade"
-            autocomplete="off">
+            autocomplete="off" formControlName="ProductName">
         </mat-form-field>
+
         <div class="container-contact2-form-btn">
           <div class="wrap-contact2-form-btn">
             <div class="contact2-form-bgbtn"></div>

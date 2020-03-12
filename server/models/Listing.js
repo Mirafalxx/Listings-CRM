@@ -7,11 +7,11 @@ module.exports = (sequelize, dataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        Product_ASIN: {
+        ProductASIN: {
             type: dataTypes.STRING(255),
             allowNull: false
         },
-        Product_name: {
+        ProductName: {
             type: dataTypes.STRING(255),
             allowNull: false
         }
