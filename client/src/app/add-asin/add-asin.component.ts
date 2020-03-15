@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { HttpClient } from "@angular/common/http"
+// import { HttpClient } from "@angular/common/http";
+import { ListingService, Product } from '../shared/listing.service'
+
+
+
 
 
 @Component({
@@ -9,10 +13,12 @@ import { HttpClient } from "@angular/common/http"
   styleUrls: ['./add-asin.component.css']
 })
 export class AddAsinComponent implements OnInit {
-  myForm: FormGroup;
-  response: any;
 
-  constructor(private http: HttpClient, private fb: FormBuilder) {
+  static url = 'http://localhost:3000/api/';
+  myForm: FormGroup;
+  products: Product[] = [];
+
+  constructor(private listingService: ListingService, private fb: FormBuilder) {
   }
   ngOnInit() {
     this.myForm = this.fb.group({
@@ -24,18 +30,24 @@ export class AddAsinComponent implements OnInit {
         Validators.required,
       ]],
     });
-
   }
   get asin() {
     return this.myForm.get('ProductASIN');
   }
+
   addAsin() {
-    this.http.post('http://localhost:3000/api/addListing', this.myForm.value).subscribe((response) => {
-      this.response = response;
-      console.log(this.response)
-      console.log('Значения : ' + this.myForm.value);
-    })
-    // console.log();
+
+    const { ProductASIN, ProductName } = this.myForm.value;
+
+    const products: Product = {
+      ProductASIN, ProductName
+    }
+    this.listingService.create(products).subscribe(product => {
+      this.products.push(product)
+      console.log(product);
+
+    }, err => console.error(err));
+
   }
   get ProductAsin() {
     return this.myForm.get('ProductASIN');

@@ -3,8 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { AddAsinComponent } from './add-asin/add-asin.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { JoinAsinComponent } from './join-asin/join-asin.component';
-import { SplitAsinComponent } from './split-asin/split-asin.component';
 import { AuthorizationComponent } from './authorization/authorization.component';
+import { SplitAsinComponent } from './split-asin/split-asin.component';
 
 
 
