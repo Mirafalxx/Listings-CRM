@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations'
 import { MatInputModule } from '@angular/material/input';
+import { ListingsComponent } from './listings/listings.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { MatInputModule } from '@angular/material/input';
     SplitAsinComponent,
     JoinAsinComponent,
     AuthorizationComponent,
+    ListingsComponent,
   ],
   imports: [
     BrowserModule,
