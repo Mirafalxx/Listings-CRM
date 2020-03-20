@@ -1,5 +1,5 @@
 export class Listings {
-    ProductID: number;
-    ProductASIN: string;
-    ProductName: string;
+    listingID: number
+    ProductASIN: string
+    ProductName: string
 }

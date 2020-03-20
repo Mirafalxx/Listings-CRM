@@ -15,9 +15,7 @@ router.post("/", async (req, res) => {
     let {
       ProductASIN,
       ProductName
-
     } = req.body;
-
     if (ProductASIN && ProductName) {
       const response = await Listing.create({
         ProductASIN,
@@ -32,6 +30,7 @@ router.post("/", async (req, res) => {
         error: "Not enough data to add new lesting"
       });
     }
+
   } catch (error) {
     console.error("error:", error);
     res.status(500).send({

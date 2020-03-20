@@ -13,19 +13,17 @@ import { Listings } from '../listings';
 
 export class JoinAsinComponent implements OnInit {
 
-  listing: Listings[];
+  listings: Listings[];
 
   constructor(private listingServices: ListingService) {
   }
   ngOnInit() {
     this.getListings();
   }
-
-  getListings() {
+  getListings = () => {
     this.listingServices.getListing().subscribe((data: any) => {
-      // console.log(data);
-      this.listing = data.data;
-      console.log(this.listing)
+      this.listings = data;
+      console.log(this.listings);
     })
   }
 }

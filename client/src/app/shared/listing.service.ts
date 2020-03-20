@@ -11,15 +11,17 @@ import { throwError } from 'rxjs';
 })
 export class ListingService {
   static url = 'http://localhost:3000/api/';
-  constructor(private http: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
   getListing() {
-    return this.http.get(`${ListingService.url}/getListings`).
-      pipe(map((data: Listings[]) => {
-        return data;
-      }), catchError(error => {
-        return throwError('Something bad :', error);
-      }))
+    return this.httpClient.get(`${ListingService.url}/getListings`).
+      pipe(
+        map((data: Listings[]) => {
+          return data;
+        }), catchError(error => {
+          return error
+        })
+      )
   }
 
 }

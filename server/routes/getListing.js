@@ -8,6 +8,7 @@ router.get("/", async (req, res) => {
   try {
     const Listings = await Listing.findAll();
     res.send(Listings);
+
   } catch (err) {
     res.status(500).json({
       error: "An error occurred while trying to get  listings"
