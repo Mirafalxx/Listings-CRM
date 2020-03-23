@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
 // import { HttpClient } from "@angular/common/http";
 import { ListingService } from '../shared/listing.service'
@@ -21,16 +21,21 @@ export class AddAsinComponent implements OnInit {
   response: any;
   constructor(private listingService: ListingService, private fb: FormBuilder, private http: HttpClient) {
   }
+
   ngOnInit() {
-    this.myForm = this.fb.group({
-      ProductASIN: ['', [
-        Validators.required,
-        Validators.minLength(10),
-      ]],
-      ProductName: ['', [
-        Validators.required,
-      ]],
-    });
+    // this.myForm = this.fb.group({
+    //   ProductASIN: ['', [
+    //     Validators.required,
+    //     Validators.minLength(10),
+    //   ]],
+    //   ProductName: ['', [
+    //     Validators.required,
+    //   ]],
+    // });
+    this.myForm = new FormGroup({
+      ProductASIN: new FormControl('', [Validators.required, Validators.minLength(10)]),
+      ProductName: new FormControl('', Validators.required)
+    })
   }
 
   get asin() {
@@ -44,8 +49,7 @@ export class AddAsinComponent implements OnInit {
       this.response = response;
       // console.log(this.response)
       console.log(this.myForm.value);
-      this.myForm.reset();
-
+      // this.myForm.reset();
     }, err => console.error(err));
 
   }

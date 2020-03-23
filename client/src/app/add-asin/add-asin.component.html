@@ -13,7 +13,6 @@
         <span *ngIf="asin.invalid && asin.touched">
           Your asin does not look right
         </span>
-
         <mat-form-field class="example-full-width">
           <mat-label>Product name</mat-label>
           <input matInput placeholder="SMITH & WESSON SWEX2S Extreme Ops. Knife with 40% Serrated Drop Point Blade"
@@ -23,7 +22,7 @@
         <div class="container-contact2-form-btn">
           <div class="wrap-contact2-form-btn">
             <div class="contact2-form-bgbtn"></div>
-            <button class="contact2-form-btn" (click)="addAsin()" [disabled]="myForm.invalid">
+            <button class="contact2-form-btn btn" (click)="addAsin()" [disabled]="myForm.invalid">
               Добавить
             </button>
           </div>

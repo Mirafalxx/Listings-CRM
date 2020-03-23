@@ -60,14 +60,17 @@ li {
 }
 
 /*---------------------------------------------*/
-button {
+.btn {
   outline: none !important;
   border: none;
+  font-size: 30px;
   background: transparent;
 }
 
-button:hover {
-  cursor: pointer;
+button:disabled {
+  background: #333333;
+  color: #fff;
+  cursor: not-allowed;
 }
 
 iframe {
@@ -173,11 +176,7 @@ iframe {
 
 
 
-
-/* .input2:focus+.focus-input2::after {
-  
-  
-  /*------------------------------------------------------------------
+/*------------------------------------------------------------------
   [ Button ]*/
 .container-contact2-form-btn {
   display: flex;
@@ -208,6 +207,7 @@ iframe {
   transition: all 0.4s;
 }
 
+
 .contact2-form-btn {
   display: flex;
   justify-content: center;
@@ -220,22 +220,10 @@ iframe {
   color: #fff;
   line-height: 1.2;
   text-transform: uppercase;
-
-
 }
+
+
 
 .wrap-contact2-form-btn:hover .contact2-form-bgbtn {
   left: 0;
 }
-
-/*------------------------------------------------------------------
-  [ Responsive ]*/
-
-@media (max-width: 576px) {
-  .wrap-contact2 {
-    padding: 72px 15px 90px 15px;
-  }
-}
-
-
-@media (max-width: 992px) {}
