@@ -1,31 +1,35 @@
 <form [formGroup]="myForm">
-  <div class="bg-contact2">
-    <div class="container-contact2">
-      <div class="wrap-contact2">
-        <span class="contact2-form-title">
-          Добавление товара
-        </span>
-        <mat-form-field class="example-full-width asin-input">
-          <mat-label>ASIN</mat-label>
-          <input matInput placeholder="B012BKZC86" autocomplete="off" formControlName="ProductASIN">
-        </mat-form-field>
+  <div class="container-contact2">
+    <div class="wrap-contact2">
+      <span class="contact2-form-title">
+        Добавление товара
+      </span>
 
-        <span *ngIf="asin.invalid && asin.touched">
+
+      <mat-form-field class="example-full-width asin-input">
+        <mat-label *ngIf="asin.pristine && asin.untouched">ASIN</mat-label>
+        <mat-label *ngIf="asin.invalid && asin.touched" class="">
           Your asin does not look right
-        </span>
-        <mat-form-field class="example-full-width">
-          <mat-label>Product name</mat-label>
-          <input matInput placeholder="SMITH & WESSON SWEX2S Extreme Ops. Knife with 40% Serrated Drop Point Blade"
-            autocomplete="off" formControlName="ProductName">
-        </mat-form-field>
+        </mat-label>
+        <input matInput placeholder="B012BKZC86" autocomplete="off" formControlName="ProductASIN">
+      </mat-form-field>
 
-        <div class="container-contact2-form-btn">
-          <div class="wrap-contact2-form-btn">
-            <div class="contact2-form-bgbtn"></div>
-            <button class="contact2-form-btn btn" (click)="addAsin()" [disabled]="myForm.invalid">
-              Добавить
-            </button>
-          </div>
+
+
+      <mat-form-field class="example-full-width">
+        <mat-label *ngIf="product.pristine && product.untouched">Product name</mat-label>
+        <mat-label *ngIf="product.invalid && product.touched">
+          Please enter product name
+        </mat-label>
+        <input matInput placeholder="SMITH & WESSON SWEX2S Extreme Ops. Knife with 40% Serrated Drop Point Blade"
+          autocomplete="off" formControlName="ProductName">
+      </mat-form-field>
+      <div class="container-contact2-form-btn">
+        <div class="wrap-contact2-form-btn">
+          <div class="contact2-form-bgbtn"></div>
+          <button class="contact2-form-btn btn" (click)="addAsinPartner()" [disabled]="myForm.invalid">
+            Добавить
+          </button>
         </div>
       </div>
     </div>

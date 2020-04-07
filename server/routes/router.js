@@ -4,7 +4,8 @@ const router = express.Router();
 const createListing = require("./createListing");
 const getListing = require("./getListing");
 const regEmployee = require('./regEmployee')
-const createCluedListings = require('./createGluedListing')
+const createCluedListings = require('./createGluedListing');
+const createPartnersListing = require('./createPartnersLIsting');
 
 //
 
@@ -12,6 +13,7 @@ const createCluedListings = require('./createGluedListing')
 router.use("/addListing", createListing);
 router.use('/regEmployee', regEmployee);
 router.use('/joinListing', createCluedListings);
+router.use('/addPartnersListing', createPartnersListing)
 /* POST REQUESTS*/
 
 /*GET REQUESTS */

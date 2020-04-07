@@ -23,15 +23,6 @@ export class AddAsinComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.myForm = this.fb.group({
-    //   ProductASIN: ['', [
-    //     Validators.required,
-    //     Validators.minLength(10),
-    //   ]],
-    //   ProductName: ['', [
-    //     Validators.required,
-    //   ]],
-    // });
     this.myForm = new FormGroup({
       ProductASIN: new FormControl('', [Validators.required, Validators.minLength(10)]),
       ProductName: new FormControl('', Validators.required)
@@ -40,6 +31,10 @@ export class AddAsinComponent implements OnInit {
 
   get asin() {
     return this.myForm.get('ProductASIN');
+  }
+
+  get product() {
+    return this.myForm.get('ProductName')
   }
   addAsin() {
 

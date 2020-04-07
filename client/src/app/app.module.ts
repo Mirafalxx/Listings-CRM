@@ -13,6 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations'
 import { MatInputModule } from '@angular/material/input';
 import { ListingsComponent } from './listings/listings.component';
+import { AddAsin2Component } from './add-asin2/add-asin2.component';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -25,6 +27,7 @@ import { ListingsComponent } from './listings/listings.component';
     JoinAsinComponent,
     AuthorizationComponent,
     ListingsComponent,
+    AddAsin2Component,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import { ListingsComponent } from './listings/listings.component';
     FormsModule,
     ReactiveFormsModule,
     NoopAnimationsModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule
 
   ],
   providers: [],

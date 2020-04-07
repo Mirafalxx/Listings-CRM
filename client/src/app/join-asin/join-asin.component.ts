@@ -13,6 +13,8 @@ import { Listings } from '../listings';
 
 export class JoinAsinComponent implements OnInit {
 
+
+
   listings: Listings[];
 
   constructor(private listingServices: ListingService) {
@@ -23,7 +25,7 @@ export class JoinAsinComponent implements OnInit {
   getListings = () => {
     this.listingServices.getListing().subscribe((data: any) => {
       this.listings = data;
-      console.log(this.listings);
+      console.log(data);
     })
   }
 }

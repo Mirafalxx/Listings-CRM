@@ -1,36 +1,36 @@
-<!-- <table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Email</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let listing of listings">
-      <td>{{listing.ProductASIN}}</td>
-      <td>{{listing.ProductName}}</td>
-    </tr>
-  </tbody>
-</table> -->
+<div class="limiter">
+  <div class="container-table100">
+    <div class="wrap-table100">
+      <div class="table100">
+        <table>
+          <thead>
+            <tr class="table100-head">
+              <th class="column1">ProductAsin</th>
+              <th class="column2">ProductName</th>
+              <th class="column3">Name</th>
+              <th class="column4">Price</th>
+              <th class="column5">Status</th>
+              <th class="column6">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let listing of listings">
+              <td class="column1">
+                <a class="amazon-listings" href="https://www.amazon.com/dp/{{listing.ProductASIN}}"
+                  target="_blank">{{listing.ProductASIN}}</a>
+              </td>
+              <td class="column2">{{listing.ProductName}}</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-<table>
-  <thead>
-    <tr class="row100 head">
-      <th class="cell100 column2">Position</th>
-      <th class="cell100 column3">Start date</th>
-      <th class="cell100 column4">Last Activity</th>
-      <th class="cell100 column5">Contacts</th>
-      <th class="cell100 column6">Age</th>
-      <th class="cell100 column7">Address</th>
-      <th class="cell100 column8">Card No</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr class="row100 body" *ngFor="let listing of listings">
-      <td class="cell100 column2">{{listing.ProductASIN}}</td>
-      <td class="cell100 column3">{{listing.ProductName}}</td>
-    </tr>
-  </tbody>
-</table>
+<a href="https://www.youtube.com/watch?v=RrJ5tpvkSFI">YOUTUBE</a>
+<!-- <p *ngFor="let item of items">{{item}}</p> -->
+
+<!-- <p *ngFor="let item of listings">{{item.ProductASIN}}</p> -->

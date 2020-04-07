@@ -1,3 +1,9 @@
+.inner-width {
+  max-width: 1000px;
+  padding: 0 10px;
+  margin: auto;
+}
+
 .navigation-menu {
   display: flex;
   align-items: center;
@@ -8,10 +14,11 @@
 .navigation-menu a {
   text-transform: uppercase;
   color: #ffffff;
+  font-size: 15px;
   text-decoration: none;
-  padding: 12px 20px;
+  padding: 12px 30px;
   border-radius: 4px;
-  transition: .3s linear;
+  transition: .4s linear;
 }
 
 .navigation-menu i {
@@ -22,10 +29,12 @@
 .navigation-menu a:hover {
   background-color: #ffffff;
   color: #2f3640;
+  border: none;
   transform: scale(1.2);
 }
 
-.home {
+
+/* .home {
   color: #ff6b6b
 }
 
@@ -44,13 +53,13 @@
 
 .contact {
   color: #1dd1a1;
-}
+} */
 
-.user {
+/* .user {
   float: left;
   text-transform: uppercase;
   color: #ffffff;
-}
+} */
 
 /* fas fa-home 
 fas fa-align-left 

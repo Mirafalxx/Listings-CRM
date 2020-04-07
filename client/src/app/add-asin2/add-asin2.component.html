@@ -1,0 +1,50 @@
+<form [formGroup]="myForm">
+  <div class="bg-contact2">
+    <div class="container-contact2">
+      <div class="wrap-contact2">
+        <span class="contact2-form-title">
+          Добавление товара
+        </span>
+        <mat-form-field class="example-full-width asin-input">
+          <mat-label *ngIf="asin.pristine && asin.untouched">B012BKZC86</mat-label>
+          <mat-label *ngIf="asin.invalid && asin.touched">
+            Your asin does not look right
+          </mat-label>
+          <input matInput placeholder="ASIN" autocomplete="off" formControlName="ProductASIN">
+        </mat-form-field>
+
+
+
+        <mat-form-field class="example-full-width">
+          <mat-label *ngIf="name.pristine && name.untouched">Product name</mat-label>
+          <mat-label *ngIf="name.invalid && name.touched">
+            Please enter product name
+          </mat-label>
+          <input matInput placeholder="SMITH & WESSON SWEX2S Extreme Ops. Knife with 40% Serrated Drop Point Blade"
+            autocomplete="off" formControlName="ProductName">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label *ngIf="partnresName.pristine && partnresName.untouched">Partner</mat-label>
+          <mat-label *ngIf="partnresName.invalid && partnresName.touched">
+            Please choose partner
+          </mat-label>
+          <mat-select formControlName="Partner">
+            <mat-option *ngFor="let partners of partner" [value]="partners.value">
+              {{partners.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+        <div class="container-contact2-form-btn">
+          <div class="wrap-contact2-form-btn">
+            <div class="contact2-form-bgbtn"></div>
+            <button class="contact2-form-btn btn" (click)="addAsinPartner()" [disabled]="myForm.invalid">
+              Добавить
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

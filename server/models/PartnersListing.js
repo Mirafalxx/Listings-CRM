@@ -1,31 +1,26 @@
 'use strict';
 
 module.exports = (sequelize, dataTypes) => {
-    var gluedListing = sequelize.define('gluedListing', {
-        OriginallistingID: {
+    var PartnersListing = sequelize.define('PartnersListing', {
+        listingID: {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-        OriginalProductASIN: {
+        ProductASIN: {
             type: dataTypes.STRING(255),
             allowNull: false
         },
-        OriginalProductName: {
+        ProductName: {
             type: dataTypes.STRING(255),
             allowNull: false
         },
-        NewProductASIN: {
+        Partner: {
             type: dataTypes.STRING(255),
             allowNull: false
-        },
-        NewProductName: {
-            type: dataTypes.STRING(255),
-            allowNull: false
-        },
+        }
     }, {
         timestamps: false
     });
-
-    return gluedListing;
+    return PartnersListing;
 };

@@ -10,7 +10,7 @@ var {
 /* GET users listing. */
 // request-запроc response -ответ
 router.post("/", async (req, res) => {
-  console.log("Add new listing", req.body);
+  // console.log("Add new listing", req.body);
   try {
     let {
       ProductASIN,

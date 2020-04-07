@@ -67,10 +67,6 @@ li {
   background: transparent;
 }
 
-button:hover {
-  cursor: pointer;
-}
-
 button:disabled {
   background: #333333;
   color: #fff;
@@ -101,7 +97,7 @@ iframe {
 
 
 /*------------------------------------------------------------------
-  [  ]*/
+    [  ]*/
 
 .contact2-form {
   width: 100%;
@@ -120,7 +116,7 @@ iframe {
 
 
 /*------------------------------------------------------------------
-  [  ]*/
+    [  ]*/
 
 .wrap-input2 {
   width: 100%;
@@ -181,7 +177,7 @@ iframe {
 
 
 /*------------------------------------------------------------------
-  [ Button ]*/
+    [ Button ]*/
 .container-contact2-form-btn {
   display: flex;
   flex-wrap: wrap;
@@ -199,8 +195,6 @@ iframe {
   margin: 0 auto;
 }
 
-
-
 .contact2-form-bgbtn {
   position: absolute;
   z-index: -1;
@@ -208,9 +202,10 @@ iframe {
   height: 100%;
   background: rgb(107, 21, 219);
   top: 0;
-  /* left: -1%; */
+  left: -100%;
   transition: all 0.4s;
 }
+
 
 .contact2-form-btn {
   display: flex;
@@ -224,6 +219,13 @@ iframe {
   color: #fff;
   line-height: 1.2;
   text-transform: uppercase;
+}
+
+.validtaion-item {
+
+  display: flex;
+  justify-content: center;
+  margin-top: -30px;
 }
 
 .wrap-contact2-form-btn:hover .contact2-form-bgbtn {
