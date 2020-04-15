@@ -25,14 +25,14 @@ module.exports = (sequelize, dataTypes) => {
     timestamps: false
 
   });
-  User.associate = function (models) {
-    models.User.belongsTo(models.Listing, {
-      onDelete: 'CASCADE',
-      foreignKey: {
-        allowNull: true
-      }
-    });
-  };
+  // User.associate = function (models) {
+  //   models.User.belongsTo(models.Listing, {
+  //     onDelete: 'CASCADE',
+  //     foreignKey: {
+  //       allowNull: true
+  //     }
+  //   });
+  // };
   return User;
 };
 

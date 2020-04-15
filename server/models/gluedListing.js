@@ -2,24 +2,19 @@
 
 module.exports = (sequelize, dataTypes) => {
     var gluedListing = sequelize.define('gluedListing', {
-        OriginallistingID: {
-            type: dataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true
-        },
-        OriginalProductASIN: {
+        OriginalAsin: {
             type: dataTypes.STRING(255),
             allowNull: false
         },
-        OriginalProductName: {
+        OriginalName: {
             type: dataTypes.STRING(255),
             allowNull: false
         },
-        NewProductASIN: {
+        NewAsin: {
             type: dataTypes.STRING(255),
             allowNull: false
         },
-        NewProductName: {
+        NewName: {
             type: dataTypes.STRING(255),
             allowNull: false
         },

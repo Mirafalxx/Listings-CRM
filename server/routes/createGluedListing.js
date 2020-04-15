@@ -10,17 +10,17 @@ router.post("/", async (req, res) => {
     console.log("Add new listing", req.body);
     try {
         let {
-            OriginalProductASIN,
-            OriginalProductName,
-            NewProductASIN,
-            NewProductName,
+            OriginalAsin,
+            OriginalName,
+            NewAsin,
+            NewName
         } = req.body;
-        if (OriginalProductASIN && OriginalProductName && NewProductASIN && NewProductName) {
+        if (OriginalAsin && OriginalName && NewAsin && NewName) {
             const response = await gluedListing.create({
-                OriginalProductASIN,
-                OriginalProductName,
-                NewProductASIN,
-                NewProductName,
+                OriginalAsin,
+                OriginalName,
+                NewAsin,
+                NewName
             });
 
             if (response) res.status(200).send({

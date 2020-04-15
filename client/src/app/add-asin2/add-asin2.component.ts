@@ -18,9 +18,9 @@ export class AddAsin2Component implements OnInit {
   response: any;
   constructor(private http: HttpClient) { }
   partner: Partners[] = [
-    { value: 'Dima-0', viewValue: 'Дима' },
-    { value: 'Sergei-1', viewValue: 'Сергей' },
-    { value: 'Sema-2', viewValue: 'Сёма' }
+    { value: 'Dima', viewValue: 'Дима' },
+    { value: 'Sergei', viewValue: 'Сергей' },
+    { value: 'Sema', viewValue: 'Сёма' }
   ];
 
   ngOnInit() {
@@ -40,7 +40,7 @@ export class AddAsin2Component implements OnInit {
     let { ProductASIN, ProductName, Partner } = this.myForm.value;
 
     if (this.myForm.valid) {
-      this.http.post('http://localhost:3000/api/addPartnersListing', this.myForm.value).subscribe((response) => {
+      this.http.post('http://localhost:3000/api/addListing2', this.myForm.value).subscribe((response) => {
         this.response = response;
         console.log(this.response);
         this.myForm.reset();

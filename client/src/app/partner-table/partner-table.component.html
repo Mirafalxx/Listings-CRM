@@ -1,0 +1,45 @@
+<div class="limiter">
+  <div class="container-table100">
+    <div class="wrap-table100">
+      <div class="table100">
+        <table>
+          <thead>
+            <tr class="table100-head">
+              <th class="column1">ProductAsin</th>
+              <th class="column2">ProductName</th>
+              <th class="column3">CreatedAsin</th>
+              <th class="column4">CreatedName</th>
+              <th class="column5">Problem</th>
+              <th class="column6"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let listing of listings">
+              <td class="column1">
+                <a class="amazon-listings" href="https://www.amazon.com/dp/{{listing.ProductASIN}}"
+                  target="_blank">{{listing.OriginalAsin}}</a>
+              </td>
+              <td class="column2">{{listing.OriginalName}}</td>
+              <td class="column3">{{listing.NewAsin}}</td>
+              <td class="column4">{{listing.NewName}}</td>
+              <td class="columun5">
+                <div class="input-problem">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>
+                      Please choose problem
+                    </mat-label>
+                    <mat-select>
+                      <mat-option *ngFor="let problems of problem" [value]="problems.value">
+                        {{problems.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <button mat-flat-button color="warn" class="btn-prob">Problem</button>
+                </div>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

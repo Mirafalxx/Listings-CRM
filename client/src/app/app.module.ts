@@ -15,7 +15,9 @@ import { MatInputModule } from '@angular/material/input';
 import { ListingsComponent } from './listings/listings.component';
 import { AddAsin2Component } from './add-asin2/add-asin2.component';
 import { MatSelectModule } from '@angular/material/select';
-
+import { MatButtonModule } from '@angular/material/button';
+import { PartnerTableComponent } from './partner-table/partner-table.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { MatSelectModule } from '@angular/material/select';
     AuthorizationComponent,
     ListingsComponent,
     AddAsin2Component,
+    PartnerTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,8 +40,9 @@ import { MatSelectModule } from '@angular/material/select';
     ReactiveFormsModule,
     NoopAnimationsModule,
     MatInputModule,
-    MatSelectModule
-
+    MatSelectModule,
+    MatButtonModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

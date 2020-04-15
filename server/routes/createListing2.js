@@ -2,9 +2,13 @@
 var express = require("express");
 var router = express.Router();
 var {
-    PartnersListing
+    Listing
 } = require("../models");
 
+// import Sequelize from 'sequelize'
+
+/* GET users listing. */
+// request-запроc response -ответ
 router.post("/", async (req, res) => {
     // console.log("Add new listing", req.body);
     try {
@@ -13,16 +17,15 @@ router.post("/", async (req, res) => {
             ProductName,
             Partner
         } = req.body;
-        if (ProductASIN && ProductName && Partner) {
-            const response = await PartnersListing.create({
+        if (ProductASIN && ProductName, Partner) {
+            const response = await Listing.create({
                 ProductASIN,
                 ProductName,
                 Partner
             });
 
             if (response) res.status(200).send({
-                message: `Successfully added: ${JSON.stringify(response)}`,
-                // message: res.status
+                message: `Successfully added: ${JSON.stringify(response)}`
             });
         } else {
             res.status(400).send({

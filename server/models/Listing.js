@@ -2,11 +2,11 @@
 
 module.exports = (sequelize, dataTypes) => {
     var Listing = sequelize.define('Listing', {
-        listingID: {
-            type: dataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true
-        },
+        // listingID: {
+        //     type: dataTypes.INTEGER,
+        //     primaryKey: true,
+        //     autoIncrement: true
+        // },
         ProductASIN: {
             type: dataTypes.STRING(255),
             allowNull: false
@@ -14,14 +14,18 @@ module.exports = (sequelize, dataTypes) => {
         ProductName: {
             type: dataTypes.STRING(255),
             allowNull: false
-        }
+        },
+
+        Partner: {
+            type: dataTypes.STRING(255)
+        },
     }, {
         timestamps: false
     });
 
-    Listing.associate = function (models) {
-        models.Listing.hasMany(models.User);
-    };
+    // Listing.associate = function (models) {
+    //     models.Listing.hasMany(models.User);
+    // };
     return Listing;
 };
 
