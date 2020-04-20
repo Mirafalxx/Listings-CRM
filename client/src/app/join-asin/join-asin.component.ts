@@ -60,7 +60,7 @@ export class JoinAsinComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(ModalWindowComponent, {
       data: {
-        myVar: "My VAR"
+        myVar: "Test"
       }
     });
 
