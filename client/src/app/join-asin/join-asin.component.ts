@@ -6,11 +6,16 @@ import { GluedListings } from '../gluedListings';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { takeLast } from 'rxjs/operators';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ModalWindowComponent } from '../modal-window/modal-window.component';
 
 
 
 
-
+export interface DialogData {
+  animal: string;
+  name: string;
+}
 
 interface Problem {
   value: string;
@@ -25,8 +30,11 @@ interface Problem {
 
 export class JoinAsinComponent implements OnInit {
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'take'];
-  // displayedColumns: string[] = ['Asin', 'Listing', 'Partner', 'Employee','Title'];
+  displayedColumns: string[] = ['Asin', 'Partner', 'Listing', 'Title', 'take'];
+
+  animal: string;
+  name: string;
+
 
 
   applyFilter(event: Event) {
@@ -39,25 +47,31 @@ export class JoinAsinComponent implements OnInit {
   listings: Listings[];
   response: any;
 
-  // user = {
-  //   OriginalAsin: "",
-  //   OriginalName: "",
-  //   NewAsin: "",
-  //   NewName: ""
-  // }
 
-  constructor(private listingServices: ListingService, private http: HttpClient) {
+  constructor(private listingServices: ListingService, private http: HttpClient, public dialog: MatDialog) {
   }
 
-  problem: Problem[] = [
-    { value: 'UPC brand', viewValue: 'UPC brand' },
-    { value: 'Listing deleted', viewValue: 'Listing deleted' },
-    { value: 'Canceled by partner', viewValue: 'Canceled by partner' }
-  ];
   dataSource = new MatTableDataSource;
   ngOnInit() {
     this.getListings();
   }
+
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ModalWindowComponent, {
+      data: {
+        myVar: "My VAR"
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result);
+
+    });
+  }
+
+
   getListings = () => {
     this.listingServices.getListing().subscribe((data: any) => {
       this.listings = data;
@@ -66,26 +80,27 @@ export class JoinAsinComponent implements OnInit {
     })
   }
 
-
   createGluedListing(gluedListings: GluedListings) {
     this.listingServices.addGluedListing(gluedListings).subscribe((response) => {
       this.response = response;
       console.log(this.response);
     }, err => console.error(err));
+  };
+
+  // addAsin() {
 
 
+  //   this.http.post('http://localhost:3000/api/addListing', '').subscribe((response) => {
+  //     this.response = response;
+  //     console.log(this.response);
+  //   }, err => console.error(err));
+  // }
+
+  onRowClicked(row) {
+    console.log(row);
 
   }
 
-
-
-  // createGluedListing(gluedListings: GluedListings) {
-  //   this.listingServices.addGluedListing(gluedListings).subscribe(() => {
-  //     this.listings = this.listings.filter(t => t.id !== gluedListings.id);
-
-  //   },
-  //     err => console.error(err));
-  // }
 
 
 

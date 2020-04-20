@@ -1,26 +1,23 @@
 "use strict";
-const express = require("express");
-const router = express.Router();
-const {
-    gluedListing
+var express = require("express");
+var router = express.Router();
+var {
+    TestModel
 } = require("../models");
+
+// import Sequelize from 'sequelize'
+
 
 // request-запроc response -ответ
 router.post("/", async (req, res) => {
-    console.log("Add new listing", req.body);
+    // console.log("Add new listing", req.body);
     try {
         let {
-            OriginalAsin,
-            OriginalName,
-            NewAsin,
-            NewName
+            ProductASIN
         } = req.body;
-        if (OriginalAsin && OriginalName && NewAsin && NewName) {
-            const response = await gluedListing.create({
-                OriginalAsin,
-                OriginalName,
-                NewAsin,
-                NewName
+        if (ProductASIN) {
+            const response = await TestModel.create({
+                ProductASIN
             });
 
             if (response) res.status(200).send({
@@ -28,7 +25,7 @@ router.post("/", async (req, res) => {
             });
         } else {
             res.status(400).send({
-                error: "Not enough data to add new listing"
+                error: "Not enough data to add new lesting"
             });
         }
 

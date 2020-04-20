@@ -37,7 +37,7 @@ export class AddAsinComponent implements OnInit {
     return this.myForm.get('ProductName')
   }
   addAsin() {
-    let { ProductASIN, ProductName } = this.myForm.value;
+    // let { ProductASIN, ProductName } = this.myForm.value;
 
     this.http.post('http://localhost:3000/api/addListing', this.user).subscribe((response) => {
       this.response = response;

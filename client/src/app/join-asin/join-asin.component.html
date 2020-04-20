@@ -5,19 +5,72 @@
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-  <!-- Position Column -->
+
+  <ng-container matColumnDef="Asin">
+    <th mat-header-cell *matHeaderCellDef> Asin </th>
+    <td mat-cell *matCellDef="let listing"> {{listing.ProductASIN}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="Partner">
+    <th mat-header-cell *matHeaderCellDef> Partner </th>
+    <td mat-cell *matCellDef="let listing"> {{listing.Partner}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="Listing">
+    <th mat-header-cell *matHeaderCellDef> Listing </th>
+    <td mat-cell *matCellDef="let listing">
+      <div class="newListingForm">
+        <mat-form-field class="example-full-width asin-input">
+          <input matInput placeholder="Asin" autocomplete="off">
+        </mat-form-field>
+        <mat-form-field class="example-full-width asin-input">
+          <input matInput placeholder="Title" autocomplete="off">
+        </mat-form-field>
+        <button mat-flat-button color="primary" class="btn-prob" (click)="openDialog()">Send</button>
+        <!-- <button mat-raised-button (click)="openDialog()">Pick one</button> -->
+      </div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Title">
+    <th mat-header-cell *matHeaderCellDef> Название </th>
+    <td mat-cell *matCellDef="let listing"> {{listing.ProductName}} </td>
+
+  </ng-container>
+
+  <ng-container matColumnDef="take">
+    <th mat-header-cell *matHeaderCellDef> Employee </th>
+    <td mat-cell *matCellDef="let listing">
+    </td>
+
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClicked(row)"></tr>
+</table>
+
+
+<!-- <mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
   <ng-container matColumnDef="position">
     <th mat-header-cell *matHeaderCellDef> Asin </th>
     <td mat-cell *matCellDef="let listing"> {{listing.ProductASIN}} </td>
   </ng-container>
 
-  <!-- Name Column -->
+
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef> Partner </th>
     <td mat-cell *matCellDef="let listing"> {{listing.Partner}} </td>
   </ng-container>
 
-  <!-- Weight Column -->
+
   <ng-container matColumnDef="weight">
     <th mat-header-cell *matHeaderCellDef> Listing </th>
     <td mat-cell *matCellDef="let listing"> Listing </td>
@@ -28,7 +81,7 @@
     <td mat-cell *matCellDef="let listing"> {{listing.ProductName}} </td>
   </ng-container>
 
-  <!-- Symbol Column -->
+
   <ng-container matColumnDef="symbol">
     <th mat-header-cell *matHeaderCellDef> Employee </th>
     <td mat-cell *matCellDef="let listing">
@@ -38,114 +91,4 @@
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-
-
-
-
-
-<!-- <div class="limiter">
-  <div class="container-table100">
-    <div class="wrap-table100">
-      <div class="table100">
-        <table>
-          <thead>
-            <tr class="table100-head">
-              <th class="column1">ProductAsin</th>
-              <th class="column2">ProductName</th>
-              <th class="column3">Partner</th>
-              <th class="column4"></th>
-              <th class="column5">New Listing</th>
-              <th class="column6">Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let listing of listings">
-              <td class="column1">
-                <a class="amazon-listings" href="https://www.amazon.com/dp/{{listing.ProductASIN}}"
-                  target="_blank">{{listing.ProductASIN}}</a>
-              </td>
-              <td class="column2">{{listing.ProductName}}</td>
-              <td class="column3">{{listing.Partner}}</td>
-              <td class="columun4">
-                <mat-form-field class="example-full-width asin-input">
-                  <input matInput placeholder="ASIN" autocomplete="off">
-                </mat-form-field>
-                <mat-form-field class="example-full-width asin-input">
-                  <input matInput placeholder="ProductName" autocomplete="off">
-                </mat-form-field>
-                <button mat-flat-button color="primary" class="btn-prob"
-                  (click)="createGluedListing(listing)">Send</button>
-              </td>
-              <td class="columun5">
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-
-
-<!-- <td class="columun4">
-  <mat-form-field class="example-full-width asin-input">
-    <input matInput placeholder="ASIN" autocomplete="off">
-  </mat-form-field>
-  <mat-form-field class="example-full-width asin-input">
-    <input matInput placeholder="ProductName" autocomplete="off">
-  </mat-form-field>
-  <button mat-flat-button color="primary" class="sendBTN" (click)="addGluedListing()">Send</button>
-</td> -->
-
-<!-- <tr *ngFor="let listing of listings">
-  <td class="column1">
-    <a class="amazon-listings" href="https://www.amazon.com/dp/{{listing.ProductASIN}}"
-      target="_blank">{{listing.ProductASIN}}
-    </a>
-  </td>
-  <td class="column2">{{listing.ProductName}}</td>
-  <td class="columun3">{{listing.Partner}} </td>
-  
-  <td class="columun4"></td>
-  <td class="columun4"></td>
-  <td class="columun4"></td>
-</tr> -->
-
-
-
-<!-- <div class="limiter">
-  <div class="container-table100">
-    <div class="wrap-table100">
-      <div class="table100">
-        <table>
-          <thead>
-            <tr class="table100-head">
-              <th class="column1">ProductAsin</th>
-              <th class="column2">ProductName</th>
-              <th class="column3">Partner</th>
-              <th class="column4">Price</th>
-              <th class="column5">Status</th>
-              <th class="column6">Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let listing of listings">
-              <td class="column1">
-                <a class="amazon-listings" href="https://www.amazon.com/dp/{{listing.ProductASIN}}"
-                  target="_blank">{{listing.ProductASIN}}</a>
-              </td>
-              <td class="column2">{{listing.OriginalName}}</td>
-              <td class="column3">{{listing.ProductName}}</td>
-              <td class="column4">{{listing.Partner}}</td>
-              <td class="columun5">
-                <div class="btn-prob">
-                  <button mat-flat-button color="primary" class="btn-prob">TAKE</button>
-                </div>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</div> -->
+</table> -->

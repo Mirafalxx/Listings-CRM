@@ -18,6 +18,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { PartnerTableComponent } from './partner-table/partner-table.component';
 import { MatTableModule } from '@angular/material/table';
+import { ModalWindowComponent } from './modal-window/modal-window.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { MatTableModule } from '@angular/material/table';
     ListingsComponent,
     AddAsin2Component,
     PartnerTableComponent,
+    ModalWindowComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,11 @@ import { MatTableModule } from '@angular/material/table';
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
+  ],
+  entryComponents: [
+    ModalWindowComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
