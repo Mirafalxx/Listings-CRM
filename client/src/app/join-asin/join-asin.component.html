@@ -22,13 +22,13 @@
     <th mat-header-cell *matHeaderCellDef> Listing </th>
     <td mat-cell *matCellDef="let listing">
       <div class="newListingForm">
-        <mat-form-field class="example-full-width asin-input">
+        <!-- <mat-form-field class="example-full-width asin-input">
           <input matInput placeholder="Asin" autocomplete="off">
         </mat-form-field>
         <mat-form-field class="example-full-width asin-input">
           <input matInput placeholder="Title" autocomplete="off">
-        </mat-form-field>
-        <button mat-flat-button color="primary" class="btn-prob" (click)="openDialog()">Send</button>
+        </mat-form-field> -->
+        <button mat-flat-button color="primary" class="btn-prob" (click)="openDialog()">Add Variation</button>
         <!-- <button mat-raised-button (click)="openDialog()">Pick one</button> -->
       </div>
     </td>
@@ -37,9 +37,7 @@
   <ng-container matColumnDef="Title">
     <th mat-header-cell *matHeaderCellDef> Название </th>
     <td mat-cell *matCellDef="let listing"> {{listing.ProductName}} </td>
-
   </ng-container>
-
   <ng-container matColumnDef="take">
     <th mat-header-cell *matHeaderCellDef> Employee </th>
     <td mat-cell *matCellDef="let listing">

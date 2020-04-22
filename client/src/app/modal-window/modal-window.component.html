@@ -1,11 +1,28 @@
-<h1 mat-dialog-title>Hi {{data.name}}</h1>
-
+<h1 mat-dialog-title>Add variation Form </h1>
 <div mat-dialog-content>
-  <p>What's your favorite animal?</p>
-  <p>{{data.myVar}}</p>
+  <div>
 
+    <mat-form-field class="variation-form">
+      <mat-label>Original Asin</mat-label>
+      <input matInput autocomplete="off" value="{{data.asin}}">
+    </mat-form-field>
+
+    <mat-form-field class="variation-form">
+      <mat-label>Original Title</mat-label>
+      <input matInput autocomplete="off" value="{{data.title}}">
+    </mat-form-field>
+
+    <mat-form-field class="variation-form">
+      <mat-label>Variation Asin</mat-label>
+      <input matInput autocomplete="off">
+    </mat-form-field>
+
+    <mat-form-field class="variation-form">
+      <mat-label> Variation Title</mat-label>
+      <input matInput autocomplete="off">
+    </mat-form-field>
+  </div>
 </div>
 <div mat-dialog-actions>
-  <button mat-button mat-dialog-close>CANCEL</button>
-  <button mat-button (click)="save()">SAVE</button>
+  <button mat-flat-button color="primary" class="btn">Primary</button>
 </div>

@@ -31,6 +31,9 @@ interface Problem {
 export class JoinAsinComponent implements OnInit {
 
   displayedColumns: string[] = ['Asin', 'Partner', 'Listing', 'Title', 'take'];
+  selectedRow;
+
+  mira: string = '123321'
 
   animal: string;
   name: string;
@@ -56,12 +59,15 @@ export class JoinAsinComponent implements OnInit {
     this.getListings();
   }
 
+  onRowClicked(row) {
+    console.log(row);
+    this.selectedRow = row;
+    // console.log(this.selectedRow.ProductASIN);
+  }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(ModalWindowComponent, {
-      data: {
-        myVar: "Test"
-      }
+      data: { asin: this.selectedRow.ProductASIN, title: this.selectedRow.ProductName }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -70,7 +76,6 @@ export class JoinAsinComponent implements OnInit {
 
     });
   }
-
 
   getListings = () => {
     this.listingServices.getListing().subscribe((data: any) => {
@@ -96,10 +101,7 @@ export class JoinAsinComponent implements OnInit {
   //   }, err => console.error(err));
   // }
 
-  onRowClicked(row) {
-    console.log(row);
 
-  }
 
 
 
