@@ -4,22 +4,21 @@ const router = express.Router();
 const createListing = require("./createListing");
 const getListing = require("./getListing");
 const regEmployee = require('./regEmployee')
-const createGluedListings = require('./createGluedListing');
-const test = require('./test'); //перепрвоерить и добавить на фронт
-const createListing2 = require('./createListing2');
+const partnersListing = require('./PartnersListing');
+// const test = require('./test'); //перепрвоерить и добавить на фронт
+// const createListing2 = require('./createListing2');
 const getGluedListing = require('./getGluedListing');
-const testModelPost = require('./testModelPost')
+
 
 //
 
 /* POST REQUESTS*/
 router.use("/addListing", createListing);
-router.use('/regEmployee', regEmployee);
-router.use('/joinListing', createGluedListings);
-router.use('/testListig', test)
-router.use('/addListing2', createListing2);
+router.use('/registration', regEmployee);
+router.use('/joinListing', partnersListing);
 router.use('/gluedListing', getGluedListing)
-router.use('/testModelPost', testModelPost)
+
+
 /* POST REQUESTS*/
 
 /*GET REQUESTS */

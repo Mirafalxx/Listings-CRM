@@ -26,6 +26,17 @@ export class ListingService {
   static url = 'http://localhost:3000/api/';
   constructor(private http: HttpClient) { }
 
+  addGluedListing(gluedListing: GluedListings) {
+    return this.http
+      .post('http://localhost:3000/api/joinListing', gluedListing);
+  }
+
+
+  addListing(listings: Listings) {
+    return this.http
+      .post('http://localhost:3000/api/addListing', listings);
+  }
+
 
   getListing() {
     return this.http.get(`${ListingService.url}/getListings`).
@@ -59,9 +70,5 @@ export class ListingService {
   //     );
   // }
 
-  addGluedListing(gluedListing: GluedListings) {
-    return this.http
-      .post('http://localhost:3000/api/joinListing', gluedListing);
-  }
 
 }

@@ -31,12 +31,10 @@ interface Problem {
 export class JoinAsinComponent implements OnInit {
 
   displayedColumns: string[] = ['Asin', 'Partner', 'Listing', 'Title', 'take'];
+
   selectedRow;
-
-  mira: string = '123321'
-
-  animal: string;
-  name: string;
+  varAsin: string;
+  varName: string;
 
 
 
@@ -67,13 +65,16 @@ export class JoinAsinComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(ModalWindowComponent, {
-      data: { asin: this.selectedRow.ProductASIN, title: this.selectedRow.ProductName }
+      data: {
+        Asin: this.selectedRow.ProductASIN,
+        Name: this.selectedRow.ProductName,
+        newAsin: this.varAsin,
+        newName: this.varName,
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
       console.log(result);
-
     });
   }
 
@@ -84,26 +85,4 @@ export class JoinAsinComponent implements OnInit {
       console.log(data);
     })
   }
-
-  createGluedListing(gluedListings: GluedListings) {
-    this.listingServices.addGluedListing(gluedListings).subscribe((response) => {
-      this.response = response;
-      console.log(this.response);
-    }, err => console.error(err));
-  };
-
-  // addAsin() {
-
-
-  //   this.http.post('http://localhost:3000/api/addListing', '').subscribe((response) => {
-  //     this.response = response;
-  //     console.log(this.response);
-  //   }, err => console.error(err));
-  // }
-
-
-
-
-
-
 }

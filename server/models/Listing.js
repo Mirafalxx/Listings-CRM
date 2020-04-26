@@ -15,7 +15,6 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(255),
             allowNull: false
         },
-
         Partner: {
             type: dataTypes.STRING(255)
         },

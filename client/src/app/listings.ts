@@ -1,5 +1,6 @@
 export class Listings {
-    id: string
+    id?: string
     ProductASIN: string
     ProductName: string
+    Partner?: string
 }

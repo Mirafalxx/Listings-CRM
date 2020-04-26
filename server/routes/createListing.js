@@ -1,7 +1,7 @@
 "use strict";
-var express = require("express");
-var router = express.Router();
-var {
+let express = require("express");
+let router = express.Router();
+let {
   Listing
 } = require("../models");
 
@@ -14,12 +14,14 @@ router.post("/", async (req, res) => {
   try {
     let {
       ProductASIN,
-      ProductName
+      ProductName,
+      Partner
     } = req.body;
     if (ProductASIN && ProductName) {
       const response = await Listing.create({
         ProductASIN,
-        ProductName
+        ProductName,
+        Partner
       });
 
       if (response) res.status(200).send({

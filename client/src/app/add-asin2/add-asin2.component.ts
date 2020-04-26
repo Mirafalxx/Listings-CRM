@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Listings } from '../listings';
+import { ListingService } from '../shared/listing.service';
 
 interface Partners {
   value: string;
@@ -16,7 +18,7 @@ export class AddAsin2Component implements OnInit {
   myForm: FormGroup;
   static url = 'http://localhost:3000/api/';
   response: any;
-  constructor(private http: HttpClient) { }
+  constructor(public listingService: ListingService) { }
   partner: Partners[] = [
     { value: 'Dima', viewValue: 'Дима' },
     { value: 'Sergei', viewValue: 'Сергей' },
@@ -26,7 +28,6 @@ export class AddAsin2Component implements OnInit {
   ngOnInit() {
     this.createFormControls()
   }
-
   createFormControls() {
     this.myForm = new FormGroup({
       ProductASIN: new FormControl('', [Validators.required, Validators.minLength(10)]),
@@ -38,9 +39,14 @@ export class AddAsin2Component implements OnInit {
   addAsinPartner() {
 
     let { ProductASIN, ProductName, Partner } = this.myForm.value;
+    const listing: Listings = {
+      ProductASIN,
+      ProductName,
+      Partner
+    }
 
     if (this.myForm.valid) {
-      this.http.post('http://localhost:3000/api/addListing2', this.myForm.value).subscribe((response) => {
+      this.listingService.addListing(listing).subscribe((response) => {
         this.response = response;
         console.log(this.response);
         this.myForm.reset();

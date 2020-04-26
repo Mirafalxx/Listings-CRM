@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = (sequelize, dataTypes) => {
-    var gluedListing = sequelize.define('gluedListing', {
+    const gluedListing = sequelize.define('gluedListing', {
         OriginalAsin: {
             type: dataTypes.STRING(255),
             allowNull: false
