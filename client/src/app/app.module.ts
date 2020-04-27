@@ -20,6 +20,7 @@ import { PartnerTableComponent } from './partner-table/partner-table.component';
 import { MatTableModule } from '@angular/material/table';
 import { ModalWindowComponent } from './modal-window/modal-window.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     AddAsin2Component,
     PartnerTableComponent,
     ModalWindowComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

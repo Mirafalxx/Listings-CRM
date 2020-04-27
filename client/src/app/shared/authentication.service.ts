@@ -93,7 +93,7 @@ export class AuthenticationService {
 
   public login(user: TokenPayload): Observable<any> {
 
-    const base = this.http.post(`/api/login`, user);
+    const base = this.http.post(`http://localhost:3000/api/login`, user);
 
 
     const request = base.pipe(
@@ -108,7 +108,7 @@ export class AuthenticationService {
   }
 
   public profile(): Observable<any> {
-    return this.http.get('/api/profile', {
+    return this.http.get('http://localhost:3000/api/profile', {
       headers: { Authorization: `${this.getToken()}` }
     })
   }

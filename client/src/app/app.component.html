@@ -1,2 +1,26 @@
-<app-navbar></app-navbar>
+<div class="inner-width">
+  <nav class="navigation-menu">
+    <a routerLink="/">Add</a>
+    <a routerLink="/addAsin">Add2</a>
+    <a routerLink="/join-asin">Join</a>
+    <a routerLink="/split-asin">Separate</a>
+    <a routerLink="/partnersTable">Partners table</a>
+
+    <ul>
+      <li *ngIf="!auth.isLoggedIn()" class="nav-item">
+        <a routerLink="/authorization">Authorization</a>
+      </li>
+      <li *ngIf="!auth.isLoggedIn()" class="nav-item">
+        <a class="nav-link" routerLink="/">Register</a>
+      </li>
+      <li *ngIf="auth.isLoggedIn()" class="nav-item">
+        <a class="nav-link" routerLink="/profile">{{ auth.getUserDetails()?.email }}</a>
+      </li>
+      <li *ngIf="auth.isLoggedIn()" class="nav-item">
+        <a class="nav-link" routerLink="" (click)="auth.logOut()">Logout</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
 <router-outlet></router-outlet>
