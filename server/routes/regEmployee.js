@@ -53,4 +53,31 @@ router.post('', (req, res) => {
 
 })
 
+
+
+
+// login-
+router.post('', (req, res) => {
+    User.findOne({
+            where: {
+                email: req.body.email
+            }
+        })
+        .then(user => {
+            if (bcrypt.compareSync(req.body.password, user.password)) {
+                let token = jwt.sign(user.dataValues, process.env.SECRET_KEY, {
+                    expiresIn: 1440
+                })
+                res.json({
+                    token: token
+                })
+            } else {
+                res.send('user does not exist')
+            }
+        })
+        .catch(err => {
+            res.send('error', err)
+        })
+})
+
 module.exports = router;
