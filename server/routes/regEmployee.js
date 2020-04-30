@@ -48,7 +48,7 @@ router.post('', (req, res) => {
             }
         })
         .catch(err => {
-            res.send('error', err)
+            res.send('error', err) //тик так
         })
 
 })

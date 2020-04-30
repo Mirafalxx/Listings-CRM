@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 // import { HttpClient } from "@angular/common/http";
 import { ListingService } from '../shared/listing.service'
 import { HttpClient } from '@angular/common/http';
 import { Listings } from '../listings';
+import { ToastrComponent } from '../toastr/toastr.component';
+
 
 
 @Component({
@@ -18,7 +21,7 @@ export class AddAsinComponent implements OnInit {
   myForm: FormGroup;
   response: any;
   constructor(private listingService: ListingService,
-    private http: HttpClient) {
+    private http: HttpClient, private _snackBar: MatSnackBar) {
 
   }
 
@@ -41,8 +44,6 @@ export class AddAsinComponent implements OnInit {
     return this.myForm.get('ProductName')
   }
 
-
-
   addAsin() {
     const { ProductASIN, ProductName } = this.myForm.value;
 
@@ -54,9 +55,15 @@ export class AddAsinComponent implements OnInit {
     this.listingService.addListing(listing).subscribe((response) => {
       this.response = response;
       console.log(this.response);
+      this.openSnackBar();
       this.myForm.reset();
     }, err => console.error(err));
     this.myForm.reset();
   }
 
+  openSnackBar() {
+    this._snackBar.openFromComponent(ToastrComponent, {
+      duration: 2000,
+    });
+  }
 }

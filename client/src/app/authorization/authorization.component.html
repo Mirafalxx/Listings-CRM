@@ -1,21 +1,21 @@
 <div class="authorization-form">
   <p class="auth-title">Авторизация</p>
-  <form (submit)=login()>
-    <mat-form-field class=" auth-input">
-      <input matInput placeholder="Login" autocomplete="off" [(ngModel)]="credentials.email">
-    </mat-form-field>
-    <mat-form-field class="auth-input">
-      <input matInput placeholder="Password" autocomplete="off" type="password" [(ngModel)]="credentials.passwrod">
-    </mat-form-field>
 
-    <button class="auth-button" type="submit">
-      Войти
-    </button>
-  </form>
+  <mat-form-field class=" auth-input">
+    <input matInput placeholder="Login" autocomplete="off" [(ngModel)]="credentials.email">
+  </mat-form-field>
+  <mat-form-field class="auth-input">
+    <input matInput placeholder="Password" autocomplete="off" type="password" [(ngModel)]="credentials.password">
+  </mat-form-field>
+
+  <button class="auth-button" (click)='login()'>
+    Войти
+  </button>
+
 
 </div>
 
-
+<!-- 
 <div class="container">
   <div class="row">
     <div class="col-md-6 mt-5 mx-auto">
@@ -35,7 +35,7 @@
       </form>
     </div>
   </div>
-</div>
+</div> -->
 
 
 <!-- 

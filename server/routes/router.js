@@ -10,12 +10,13 @@ const partnersListing = require('./PartnersListing');
 // const createListing2 = require('./createListing2');
 const getGluedListing = require('./getGluedListing');
 const profile = require('./Profile')
+const deleteListing = require('./deleteListing')
 
 
 //
 
 /* POST REQUESTS*/
-router.use("/addListing", createListing);
+router.use("/", createListing);
 router.use('/registration', regEmployee);
 router.use('/joinListing', partnersListing);
 router.use('/gluedListing', getGluedListing);
@@ -27,5 +28,6 @@ router.use('/profile', profile)
 
 /*GET REQUESTS */
 router.use("/getListings", getListing);
+router.use('/deleteListing', deleteListing)
 /*GET REQUESTS */
 module.exports = router;

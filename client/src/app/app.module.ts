@@ -21,6 +21,8 @@ import { MatTableModule } from '@angular/material/table';
 import { ModalWindowComponent } from './modal-window/modal-window.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ProfileComponent } from './profile/profile.component';
+import { ToastrComponent } from './toastr/toastr.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,7 @@ import { ProfileComponent } from './profile/profile.component';
     PartnerTableComponent,
     ModalWindowComponent,
     ProfileComponent,
+    ToastrComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,10 +51,12 @@ import { ProfileComponent } from './profile/profile.component';
     MatSelectModule,
     MatButtonModule,
     MatTableModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
   ],
   entryComponents: [
-    ModalWindowComponent
+    ModalWindowComponent,
+    ToastrComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

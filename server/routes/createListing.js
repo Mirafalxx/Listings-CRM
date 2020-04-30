@@ -9,7 +9,7 @@ let {
 
 /* GET users listing. */
 // request-запроc response -ответ
-router.post("/", async (req, res) => {
+router.post("/addListing", async (req, res) => {
   // console.log("Add new listing", req.body);
   try {
     let {

@@ -6,20 +6,10 @@
     <a routerLink="/split-asin">Separate</a>
     <a routerLink="/partnersTable">Partners table</a>
 
-    <ul>
-      <li *ngIf="!auth.isLoggedIn()" class="nav-item">
-        <a routerLink="/authorization">Authorization</a>
-      </li>
-      <li *ngIf="!auth.isLoggedIn()" class="nav-item">
-        <a class="nav-link" routerLink="/">Register</a>
-      </li>
-      <li *ngIf="auth.isLoggedIn()" class="nav-item">
-        <a class="nav-link" routerLink="/profile">{{ auth.getUserDetails()?.email }}</a>
-      </li>
-      <li *ngIf="auth.isLoggedIn()" class="nav-item">
-        <a class="nav-link" routerLink="" (click)="auth.logOut()">Logout</a>
-      </li>
-    </ul>
+
+    <a *ngIf="!auth.isLoggedIn()" routerLink="/authorization">Authorization</a>
+    <a class="nav-link" *ngIf="auth.isLoggedIn()" routerLink="/profile">{{ auth.getUserDetails()?.email }}</a>
+    <a class="nav-link" routerLink="" *ngIf="auth.isLoggedIn()" (click)="auth.logOut()">Logout</a>
   </nav>
 </div>
 
