@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, of, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router'
 
@@ -32,8 +32,15 @@ export interface TokenPayload {
 export class AuthenticationService {
 
   private token: string
+  private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
+
+
 
   constructor(private http: HttpClient, private router: Router) { }
+
+
+
 
   private saveToken(token: string): void {
     localStorage.setItem('userToken', token)
@@ -62,15 +69,23 @@ export class AuthenticationService {
   }
 
 
-  public isLoggedIn(): boolean {
+  public isLoggedIn() {
     const user = this.getUserDetails();
     if (user) {
       return user.exp > Date.now() / 1000
     }
     else {
-      return false
+      return this.loggedIn.asObservable();
     }
+
+
+
   }
+
+
+
+
+
 
 
   public register(user: TokenPayload): Observable<any> {
@@ -95,7 +110,6 @@ export class AuthenticationService {
 
     const base = this.http.post(`http://localhost:3000/api/login`, user);
 
-
     const request = base.pipe(
       map((data: TokenResponse) => {
         if (data.token) {
@@ -116,7 +130,7 @@ export class AuthenticationService {
   public logOut(): void {
     this.token = '';
     window.localStorage.removeItem('userToken')
-    this.router.navigateByUrl('/')
+    this.router.navigate(['/authorization'])
   }
 
 }

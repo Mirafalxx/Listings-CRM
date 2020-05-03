@@ -30,7 +30,7 @@ export class AuthorizationComponent implements OnInit {
   login() {
     this.auth.login(this.credentials).subscribe(
       () => {
-        this.router.navigateByUrl('/profile')
+        this.router.navigate(['/join-asin'])
         console.log('test');
 
       },
