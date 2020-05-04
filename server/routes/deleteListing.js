@@ -31,7 +31,7 @@ router.delete("/:id", async (req, res) => {
                 });
             } else {
                 res.send({
-                    message: `Cannot delete Tutorial with id=${id}. Maybe Tutorial was not found!`
+                    message: `Cannot delete Listing with id=${id}. Maybe Listing was not found!`
                 });
             }
         })

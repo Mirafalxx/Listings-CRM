@@ -66,6 +66,7 @@ export class JoinAsinComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(ModalWindowComponent, {
       data: {
+        listingId: this.selectedRow.id,
         Asin: this.selectedRow.ProductASIN,
         Name: this.selectedRow.ProductName,
         newAsin: this.varAsin,

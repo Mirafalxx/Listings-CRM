@@ -18,7 +18,11 @@ export class ModalWindowComponent implements OnInit {
     public dialogRef: MatDialogRef<ModalWindowComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any, public http: HttpClient) { }
 
+
+
+
   partnerListing = {
+    listID: this.data.listingId,
     OriginalAsin: this.data.Asin,
     OriginalName: this.data.Name,
     NewAsin: '',
@@ -38,6 +42,16 @@ export class ModalWindowComponent implements OnInit {
       console.log(this.response);
       this.dialogRef.close('da')
     }, err => console.error(err));
+
+    this.deleteListing(this.partnerListing.listID);
+  }
+
+  deleteListing(listingID) {
+    this.http.delete(`http://localhost:3000/api/deleteListing/${listingID}`).subscribe((response) => {
+      this.response = response;
+      console.log(this.response);
+      window.location.reload();
+    }, err => console.error(err))
   }
 
 

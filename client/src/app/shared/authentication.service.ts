@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router'
+import { ThrowStmt } from '@angular/compiler';
 
 
 
@@ -33,6 +34,11 @@ export class AuthenticationService {
 
   private token: string
   private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
+
+  get isALoggedIn() {
+    return this.loggedIn.asObservable(); // {2}
+  }
 
 
 
@@ -75,18 +81,11 @@ export class AuthenticationService {
       return user.exp > Date.now() / 1000
     }
     else {
-      return this.loggedIn.asObservable();
+      return false
     }
 
-
-
+    // this.loggedIn.asObservable
   }
-
-
-
-
-
-
 
   public register(user: TokenPayload): Observable<any> {
 
@@ -118,6 +117,7 @@ export class AuthenticationService {
         return data;
       })
     )
+    this.loggedIn.next(true);
     return request;
   }
 
@@ -127,10 +127,10 @@ export class AuthenticationService {
     })
   }
 
-  public logOut(): void {
+  public logOut() {
+    this.loggedIn.next(false);
     this.token = '';
     window.localStorage.removeItem('userToken')
     this.router.navigate(['/authorization'])
   }
-
 }
