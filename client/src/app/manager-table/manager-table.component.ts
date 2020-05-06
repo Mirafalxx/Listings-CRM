@@ -22,20 +22,24 @@ interface Problem {
   viewValue: string;
 }
 
+
+
 @Component({
-  selector: 'app-join-asin',
-  templateUrl: './join-asin.component.html',
-  styleUrls: ['./join-asin.component.css']
+  selector: 'app-manager-table',
+  templateUrl: './manager-table.component.html',
+  styleUrls: ['./manager-table.component.css']
+
 })
 
-export class JoinAsinComponent implements OnInit {
 
-  displayedColumns: string[] = ['Asin', 'Partner', 'Listing', 'Title', 'take'];
 
-  onRowClicked(row) {
-    console.log(row);
-    this.selectedRow = row;
-  }
+
+export class ManagerTableComponent implements OnInit {
+
+  displayedColumns: string[] =
+    ['OriginalAsin',
+      'OriginalName', 'NewAsin', 'NewName',
+      'Partner', 'Problem', 'returnListing'];
 
   selectedRow;
   varAsin: string;
@@ -59,35 +63,23 @@ export class JoinAsinComponent implements OnInit {
 
   dataSource = new MatTableDataSource;
   ngOnInit() {
-    this.getListings();
+    this.getGluedListings();
+  }
 
+  onRowClicked(row) {
+    console.log(row);
+    this.selectedRow = row;
+    // console.log(this.selectedRow.ProductASIN);
   }
 
 
-
-
-
-  openDialog(): void {
-    const dialogRef = this.dialog.open(ModalWindowComponent, {
-      data: {
-        listingId: this.selectedRow.id,
-        Asin: this.selectedRow.ProductASIN,
-        Name: this.selectedRow.ProductName,
-        newAsin: this.varAsin,
-        newName: this.varName,
-      }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
-    });
-  }
-
-  getListings = () => {
-    this.listingServices.getListing().subscribe((data: any) => {
+  getGluedListings = () => {
+    this.listingServices.getGluedListing().subscribe((data: any) => {
       this.listings = data;
       this.dataSource = new MatTableDataSource(data)
       console.log(data);
     })
   }
+
+
 }

@@ -8,6 +8,7 @@ import { SplitAsinComponent } from './split-asin/split-asin.component';
 import { AddAsin2Component } from './add-asin2/add-asin2.component';
 import { PartnerTableComponent } from './partner-table/partner-table.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ManagerTableComponent } from './manager-table/manager-table.component';
 
 
 
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'authorization', component: AuthorizationComponent },
   { path: 'partnersTable', component: PartnerTableComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'manager-table', component: ManagerTableComponent },
   { path: '**', component: PageNotFoundComponent },
 
 ];

@@ -23,6 +23,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ProfileComponent } from './profile/profile.component';
 import { ToastrComponent } from './toastr/toastr.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ManagerTableComponent } from './manager-table/manager-table.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ModalWindowComponent,
     ProfileComponent,
     ToastrComponent,
+    ManagerTableComponent,
   ],
   imports: [
     BrowserModule,

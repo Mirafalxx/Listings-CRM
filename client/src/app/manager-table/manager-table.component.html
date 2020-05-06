@@ -1,0 +1,55 @@
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+  <ng-container matColumnDef="OriginalAsin">
+    <th mat-header-cell *matHeaderCellDef> Asin </th>
+    <td mat-cell *matCellDef="let listing">
+      <a href="https://www.amazon.com/dp/{{listing.OriginalAsin}}" class="listing-link">
+        {{listing.NewAsin}}</a>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="OriginalName">
+    <th mat-header-cell *matHeaderCellDef> Title </th>
+    <td mat-cell *matCellDef="let listing"> {{listing.OriginalName}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="NewAsin">
+    <th mat-header-cell *matHeaderCellDef> Variation Asin </th>
+    <td mat-cell *matCellDef="let listing">
+      {{listing.NewAsin}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="NewName">
+    <th mat-header-cell *matHeaderCellDef> Variation title </th>
+    <td mat-cell *matCellDef="let listing"> {{listing.NewName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Partner">
+    <th mat-header-cell *matHeaderCellDef> Partner </th>
+    <td mat-cell *matCellDef="let listing">1</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Problem">
+    <th mat-header-cell *matHeaderCellDef> Problem </th>
+    <td mat-cell *matCellDef="let listing">1</td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="returnListing">
+    <th mat-header-cell *matHeaderCellDef> Return </th>
+    <td mat-cell *matCellDef="let listing">
+      <button mat-flat-button color="primary" class="btn-prob" (click)="openDialog()">return</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClicked(row)"></tr>
+</table>
