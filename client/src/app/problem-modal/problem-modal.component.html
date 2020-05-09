@@ -1,0 +1,36 @@
+<h1 mat-dialog-title>Choose problem</h1>
+<div mat-dialog-content>
+  <div>
+    <mat-form-field class="variation-form">
+      <mat-label>Original Asin</mat-label>
+      <input matInput autocomplete="off" [(ngModel)]="partnersListing.OriginalAsin">
+    </mat-form-field>
+
+    <mat-form-field class="variation-form">
+      <mat-label>Original Title</mat-label>
+      <input matInput autocomplete="off" [(ngModel)]="partnersListing.OriginalName">
+    </mat-form-field>
+
+    <mat-form-field class="variation-form">
+      <mat-label>Variation Asin</mat-label>
+      <input matInput autocomplete="off" [(ngModel)]="partnersListing.NewAsin">
+    </mat-form-field>
+
+    <mat-form-field class="variation-form">
+      <mat-label> Variation Title</mat-label>
+      <input matInput autocomplete="off" [(ngModel)]="partnersListing.NewName">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Choose Problem</mat-label>
+      <mat-select class="problem-select">
+        <mat-option *ngFor="let problem of problems" [value]="problem.value">
+          {{problem.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-flat-button color="primary" class="btn" (click)='addVariation()'>Send</button>
+</div>

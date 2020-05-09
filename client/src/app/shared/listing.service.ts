@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
-import { Listings } from '../listings';
+import { Listings } from '../ListingInfo/listings';
 // import { GluedListings } from '../gluedListings';
 import { throwError, Observable } from 'rxjs';
 
@@ -12,6 +12,7 @@ export interface GluedListings {
   OriginalName: string
   NewAsin: string
   NewName: string
+  Problem?: string
 }
 
 interface CreateResponse {
@@ -38,6 +39,12 @@ export class ListingService {
   }
 
 
+  addManagerListing(managerListing: GluedListings) {
+    return this.http
+      .post(`http://localhost:3000/api/managerListing`, managerListing)
+  }
+
+
   getListing() {
     return this.http.get(`${ListingService.url}/getListings`).
       pipe(
@@ -59,16 +66,6 @@ export class ListingService {
       )
   }
 
-  // create(listing: GluedListings): Observable<GluedListings> {
-  //   return this.http
-  //     .post<CreateResponse>(`${ListingService.url}/gluedListing`, listing)
-  //     .pipe(
-  //       map(res => {
-  //         console.log(`Response: `, res);
-  //         return { ...listing, id: res.name };
-  //       })
-  //     );
-  // }
 
 
 }

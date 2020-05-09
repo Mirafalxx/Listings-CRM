@@ -5,7 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 // import { HttpClient } from "@angular/common/http";
 import { ListingService } from '../shared/listing.service'
 import { HttpClient } from '@angular/common/http';
-import { Listings } from '../listings';
+import { Listings } from '../ListingInfo/listings';
 import { ToastrComponent } from '../toastr/toastr.component';
 
 

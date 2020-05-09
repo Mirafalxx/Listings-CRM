@@ -1,27 +1,28 @@
 "use strict";
-var express = require("express");
-var router = express.Router();
-var {
-    Listing
+const express = require("express");
+const router = express.Router();
+const {
+    managerListing
 } = require("../models");
 
-// import Sequelize from 'sequelize'
-
-/* GET users listing. */
 // request-запроc response -ответ
 router.post("/", async (req, res) => {
-    // console.log("Add new listing", req.body);
+    console.log("Add new manager Listings", req.body);
     try {
         let {
-            ProductASIN,
-            ProductName,
-            Partner
+            OriginalAsin,
+            OriginalName,
+            NewAsin,
+            NewName,
+            Problem
         } = req.body;
-        if (ProductASIN && ProductName, Partner) {
-            const response = await Listing.create({
-                ProductASIN,
-                ProductName,
-                Partner
+        if (OriginalAsin && OriginalName && NewAsin && NewName && Problem) {
+            const response = await managerListing.create({
+                OriginalAsin,
+                OriginalName,
+                NewAsin,
+                NewName,
+                Problem
             });
 
             if (response) res.status(200).send({
@@ -29,7 +30,7 @@ router.post("/", async (req, res) => {
             });
         } else {
             res.status(400).send({
-                error: "Not enough data to add new lesting"
+                error: "Not enough data to add new manager listing"
             });
         }
 

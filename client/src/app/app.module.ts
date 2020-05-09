@@ -24,6 +24,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ToastrComponent } from './toastr/toastr.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ManagerTableComponent } from './manager-table/manager-table.component';
+import { ProblemModalComponent } from './problem-modal/problem-modal.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { ManagerTableComponent } from './manager-table/manager-table.component';
     ProfileComponent,
     ToastrComponent,
     ManagerTableComponent,
+    ProblemModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +60,8 @@ import { ManagerTableComponent } from './manager-table/manager-table.component';
   ],
   entryComponents: [
     ModalWindowComponent,
-    ToastrComponent
+    ToastrComponent,
+    ProblemModalComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

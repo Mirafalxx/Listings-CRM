@@ -18,9 +18,6 @@ export class ModalWindowComponent implements OnInit {
     public dialogRef: MatDialogRef<ModalWindowComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any, public http: HttpClient) { }
 
-
-
-
   partnerListing = {
     listID: this.data.listingId,
     OriginalAsin: this.data.Asin,
@@ -28,7 +25,6 @@ export class ModalWindowComponent implements OnInit {
     NewAsin: '',
     NewName: ''
   }
-
   ngOnInit() {
   }
 
@@ -55,12 +51,6 @@ export class ModalWindowComponent implements OnInit {
   }
 
 
-  // addAsin() {
-  //   // let { ProductASIN, ProductName } = this.myForm.value;
-  //   this.http.post('http://localhost:3000/api/addListing', this.data).subscribe((response) => {
-  //     this.response = response;
-  //     console.log(this.response);
-  //   }, err => console.error(err));
-  // }
+
 
 }

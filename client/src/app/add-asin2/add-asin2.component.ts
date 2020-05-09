@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { Listings } from '../listings';
+import { Listings } from '../ListingInfo/listings';
 import { ListingService } from '../shared/listing.service';
 
 interface Partners {

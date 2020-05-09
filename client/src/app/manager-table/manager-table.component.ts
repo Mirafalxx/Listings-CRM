@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ListingService } from '../shared/listing.service';
 import { HttpClient } from '@angular/common/http';
-import { Listings } from '../listings';
-import { GluedListings } from '../gluedListings';
+import { Listings } from '../ListingInfo/listings';
+import { GluedListings } from '../ListingInfo/gluedListings';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { takeLast } from 'rxjs/operators';
 import { MatTableDataSource } from '@angular/material/table';

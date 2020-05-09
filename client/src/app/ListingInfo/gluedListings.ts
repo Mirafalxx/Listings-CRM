@@ -1,5 +1,5 @@
 export class GluedListings {
-    id: string
+    id?: string
     OriginalAsin: string
     OriginalName: string
     NewAsin: string

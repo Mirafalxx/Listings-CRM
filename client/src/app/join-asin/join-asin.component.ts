@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ListingService } from '../shared/listing.service';
 import { HttpClient } from '@angular/common/http';
-import { Listings } from '../listings';
-import { GluedListings } from '../gluedListings';
+import { Listings } from '../ListingInfo/listings';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { takeLast } from 'rxjs/operators';
 import { MatTableDataSource } from '@angular/material/table';
@@ -12,15 +11,6 @@ import { ModalWindowComponent } from '../modal-window/modal-window.component';
 
 
 
-export interface DialogData {
-  animal: string;
-  name: string;
-}
-
-interface Problem {
-  value: string;
-  viewValue: string;
-}
 
 @Component({
   selector: 'app-join-asin',
@@ -30,14 +20,15 @@ interface Problem {
 
 export class JoinAsinComponent implements OnInit {
 
-  displayedColumns: string[] = ['Asin', 'Partner', 'Listing', 'Title', 'take'];
+  displayedColumns: string[] = ['Asin', 'Title', 'Listing', 'Partner', 'take'];
+  selectedRow;
 
   onRowClicked(row) {
     console.log(row);
     this.selectedRow = row;
   }
 
-  selectedRow;
+
   varAsin: string;
   varName: string;
 
@@ -62,9 +53,6 @@ export class JoinAsinComponent implements OnInit {
     this.getListings();
 
   }
-
-
-
 
 
   openDialog(): void {
