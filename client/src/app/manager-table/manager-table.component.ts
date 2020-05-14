@@ -8,6 +8,8 @@ import { takeLast } from 'rxjs/operators';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ModalWindowComponent } from '../modal-window/modal-window.component';
+import { managerListing } from '../ListingInfo/managerListing';
+import { ReturnModalComponent } from '../return-modal/return-modal.component';
 
 
 
@@ -28,7 +30,6 @@ interface Problem {
   selector: 'app-manager-table',
   templateUrl: './manager-table.component.html',
   styleUrls: ['./manager-table.component.css']
-
 })
 
 
@@ -54,7 +55,8 @@ export class ManagerTableComponent implements OnInit {
 
 
   myForm: FormGroup;
-  listings: Listings[];
+  // listings: Listings[];
+  managerListing: managerListing[];
   response: any;
 
 
@@ -63,7 +65,8 @@ export class ManagerTableComponent implements OnInit {
 
   dataSource = new MatTableDataSource;
   ngOnInit() {
-    this.getGluedListings();
+    // this.getGluedListings();
+    this.getProblemsListings();
   }
 
   onRowClicked(row) {
@@ -73,13 +76,33 @@ export class ManagerTableComponent implements OnInit {
   }
 
 
-  getGluedListings = () => {
-    this.listingServices.getGluedListing().subscribe((data: any) => {
-      this.listings = data;
-      this.dataSource = new MatTableDataSource(data)
+  openReturnModal(): void {
+    const dialogRef = this.dialog.open(ReturnModalComponent, {
+      data: {
+        listingId: this.selectedRow.id,
+        Asin: this.selectedRow.OriginalAsin,
+        Name: this.selectedRow.OriginalName,
+        newAsin: this.selectedRow.NewAsin,
+        newName: this.selectedRow.NewName,
+        Problem: this.selectedRow.Problem
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+    });
+  }
+
+
+  getProblemsListings() {
+    this.http.get('http://localhost:3000/api/getManagerListings').subscribe((data: any) => {
+      this.managerListing = data;
+      this.dataSource = new MatTableDataSource(data);
       console.log(data);
     })
   }
+
+
 
 
 }

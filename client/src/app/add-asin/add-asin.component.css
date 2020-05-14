@@ -1,4 +1,3 @@
-/*---------------------------------------------*/
 a {
   font-family: Poppins-Regular;
   font-size: 14px;
@@ -27,7 +26,7 @@ a:hover {
   color: #57b846;
 }
 
-/*---------------------------------------------*/
+
 h1,
 h2,
 h3,
@@ -52,14 +51,12 @@ li {
 }
 
 
-/*---------------------------------------------*/
 
 
 .asin-input {
   margin-bottom: 20px;
 }
 
-/*---------------------------------------------*/
 .btn {
   outline: none !important;
   border: none;
@@ -100,8 +97,7 @@ iframe {
 }
 
 
-/*------------------------------------------------------------------
-  [  ]*/
+
 
 .contact2-form {
   width: 100%;
@@ -119,8 +115,7 @@ iframe {
 
 
 
-/*------------------------------------------------------------------
-  [  ]*/
+
 
 .wrap-input2 {
   width: 100%;
@@ -159,7 +154,6 @@ iframe {
   height: 2px;
   transition: all 0.4s;
   background: red;
-  /* background: -o-linear-gradient(45deg, #d5007d, #e53935); */
 }
 
 .focus-input2::after {
@@ -176,12 +170,6 @@ iframe {
   transition: all 0.4s;
 }
 
-/*---------------------------------------------*/
-
-
-
-/*------------------------------------------------------------------
-  [ Button ]*/
 .container-contact2-form-btn {
   display: flex;
   flex-wrap: wrap;
@@ -208,7 +196,6 @@ iframe {
   height: 100%;
   background: rgb(107, 21, 219);
   top: 0;
-  /* left: -1%; */
   transition: all 0.4s;
 }
 

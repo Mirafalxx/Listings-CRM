@@ -1,11 +1,8 @@
 .variation-form {
   display: block;
   width: 320px;
+  height: 200px;
 
-}
-
-.btn-wrapper {
-  /* margin: auto; */
 }
 
 .send-btn {
@@ -13,5 +10,4 @@
   text-align: center;
   margin-top: 30px;
   margin-left: 62px;
-  /* первое значение верх низ второе лево право*/
 }

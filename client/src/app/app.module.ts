@@ -25,6 +25,13 @@ import { ToastrComponent } from './toastr/toastr.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ManagerTableComponent } from './manager-table/manager-table.component';
 import { ProblemModalComponent } from './problem-modal/problem-modal.component';
+import { MatCardModule } from '@angular/material/card';
+import { ReturnModalComponent } from './return-modal/return-modal.component';
+import { BrandConditionComponent } from './brand-condition/brand-condition.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { BannedComponent } from './banned/banned.component';
+import { BanBrandModalComponent } from './ban-brand-modal/ban-brand-modal.component';
+
 
 @NgModule({
   declarations: [
@@ -43,6 +50,10 @@ import { ProblemModalComponent } from './problem-modal/problem-modal.component';
     ToastrComponent,
     ManagerTableComponent,
     ProblemModalComponent,
+    ReturnModalComponent,
+    BrandConditionComponent,
+    BannedComponent,
+    BanBrandModalComponent
   ],
   imports: [
     BrowserModule,
@@ -56,12 +67,16 @@ import { ProblemModalComponent } from './problem-modal/problem-modal.component';
     MatButtonModule,
     MatTableModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatCardModule,
+    MatFormFieldModule
   ],
   entryComponents: [
     ModalWindowComponent,
     ToastrComponent,
-    ProblemModalComponent
+    ProblemModalComponent,
+    ReturnModalComponent,
+    BanBrandModalComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

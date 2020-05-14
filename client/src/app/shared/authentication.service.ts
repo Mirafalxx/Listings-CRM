@@ -36,6 +36,7 @@ export class AuthenticationService {
   private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
 
+
   get isALoggedIn() {
     return this.loggedIn.asObservable(); // {2}
   }

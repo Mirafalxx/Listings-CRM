@@ -1,30 +1,37 @@
 <h1 mat-dialog-title>Add variation Form </h1>
 <div mat-dialog-content>
   <div>
-
     <mat-form-field class="variation-form">
       <mat-label>Original Asin</mat-label>
-      <input matInput autocomplete="off" [(ngModel)]="partnerListing.OriginalAsin">
+      <input matInput autocomplete="off" [(ngModel)]="partnerListing.OriginalAsin" disabled>
     </mat-form-field>
 
     <mat-form-field class="variation-form">
       <mat-label>Original Title</mat-label>
-      <input matInput autocomplete="off" [(ngModel)]="partnerListing.OriginalName">
+      <input matInput autocomplete="off" [(ngModel)]="partnerListing.OriginalName" disabled>
     </mat-form-field>
 
-    <mat-form-field class="variation-form">
-      <mat-label>Variation Asin</mat-label>
-      <input matInput autocomplete="off" [(ngModel)]="partnerListing.NewAsin">
-    </mat-form-field>
 
-    <mat-form-field class="variation-form">
-      <mat-label> Variation Title</mat-label>
-      <input matInput autocomplete="off" [(ngModel)]="partnerListing.NewName">
-    </mat-form-field>
+    <form [formGroup]="form">
+      <mat-form-field class=" variation-form">
+        <mat-label>Variation Asin</mat-label>
+        <input matInput autocomplete="off" formControlName="NewAsin" [(ngModel)]="partnerListing.NewAsin">
+        <mat-error *ngIf="isFieldInvalid('NewAsin')">
+          Please etner product title
+        </mat-error>
+      </mat-form-field>
 
+      <mat-form-field class="variation-form">
+        <mat-label> Variation Title</mat-label>
+        <input matInput autocomplete="off" formControlName="NewName" [(ngModel)]="partnerListing.NewName">
+        <mat-error *ngIf="isFieldInvalid('NewName')">
+          Please etner product title
+        </mat-error>
+      </mat-form-field>
+    </form>
 
   </div>
 </div>
-<div mat-dialog-actions>
-  <button mat-flat-button color="primary" class="btn" (click)='addVariation()'>Send</button>
+<div mat-dialog-actions class="btn-wrapper">
+  <button mat-flat-button color="primary" class="send-btn" (click)='addVariation()'>Send</button>
 </div>

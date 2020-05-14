@@ -25,15 +25,11 @@ export class AddAsinComponent implements OnInit {
 
   }
 
-  user = {
-    ProductASIN: '',
-    ProductName: ''
-  }
-
   ngOnInit() {
     this.myForm = new FormGroup({
       ProductASIN: new FormControl('', [Validators.required, Validators.minLength(10)]),
-      ProductName: new FormControl('', Validators.required)
+      ProductName: new FormControl('', Validators.required),
+      Brand: new FormControl('', Validators.required)
     })
   }
 
@@ -44,12 +40,17 @@ export class AddAsinComponent implements OnInit {
     return this.myForm.get('ProductName')
   }
 
+  get brand() {
+    return this.myForm.get('Brand')
+  }
+
   addAsin() {
-    const { ProductASIN, ProductName } = this.myForm.value;
+    const { ProductASIN, ProductName, Brand } = this.myForm.value;
 
     const listing: Listings = {
       ProductASIN,
-      ProductName
+      ProductName,
+      Brand
     }
 
     this.listingService.addListing(listing).subscribe((response) => {

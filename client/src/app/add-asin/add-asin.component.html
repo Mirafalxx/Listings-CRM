@@ -4,17 +4,14 @@
       <span class="contact2-form-title">
         Добавление товара
       </span>
-
-
-
       <mat-form-field class="example-full-width asin-input">
         <mat-label *ngIf="asin.pristine && asin.untouched">ASIN</mat-label>
         <mat-label *ngIf="asin.invalid && asin.touched" class="">
           Your asin does not look right
         </mat-label>
-        <input matInput placeholder="B012BKZC86" autocomplete="off" [(ngModel)]="user.ProductASIN"
-          formControlName="ProductASIN">
+        <input matInput placeholder="B012BKZC86" autocomplete="off" formControlName="ProductASIN">
       </mat-form-field>
+
 
       <mat-form-field class="example-full-width">
         <mat-label *ngIf="product.pristine && product.untouched">Product name</mat-label>
@@ -22,7 +19,15 @@
           Please enter product name
         </mat-label>
         <input matInput placeholder="SMITH & WESSON SWEX2S Extreme Ops. Knife with 40% Serrated Drop Point Blade"
-          autocomplete="off" [(ngModel)]="user.ProductName" formControlName="ProductName">
+          autocomplete="off" formControlName="ProductName">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label *ngIf="brand.pristine && brand.untouched">Brand Name</mat-label>
+        <mat-label *ngIf="brand.invalid && brand.touched">
+          Please enter Brand
+        </mat-label>
+        <input matInput placeholder="Command" autocomplete="off" formControlName="Brand">
       </mat-form-field>
       <div class="container-contact2-form-btn">
         <div class="wrap-contact2-form-btn">
@@ -35,5 +40,3 @@
     </div>
   </div>
 </form>
-
-<!-- <button mat-button (click)="openSnackBar()">SHOW</button> -->

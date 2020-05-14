@@ -23,7 +23,7 @@
 
     <mat-form-field>
       <mat-label>Choose Problem</mat-label>
-      <mat-select class="problem-select">
+      <mat-select class="problem-select" [(ngModel)]="partnersListing.Problem">
         <mat-option *ngFor="let problem of problems" [value]="problem.value">
           {{problem.viewValue}}
         </mat-option>
@@ -32,5 +32,5 @@
   </div>
 </div>
 <div mat-dialog-actions>
-  <button mat-flat-button color="primary" class="btn" (click)='addVariation()'>Send</button>
+  <button mat-flat-button color="warn" class="btn" (click)='sendProblem()'>Send</button>
 </div>

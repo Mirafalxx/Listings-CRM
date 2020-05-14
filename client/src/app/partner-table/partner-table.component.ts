@@ -24,7 +24,7 @@ export class PartnerTableComponent implements OnInit {
   response;
 
 
-  displayedColumns: string[] = ['OriginalAsin', 'OriginalName', 'NewAsin', 'NewName', 'takeProblem', 'Partner'];
+  displayedColumns: string[] = ['OriginalAsin', 'OriginalName', 'NewAsin', 'NewName', 'takeProblem'];
 
 
 
@@ -63,9 +63,6 @@ export class PartnerTableComponent implements OnInit {
       console.log(result);
     });
   }
-
-
-
   getGluedListings = () => {
     this.listingServices.getGluedListing().subscribe((data: any) => {
       this.listings = data;
@@ -73,5 +70,7 @@ export class PartnerTableComponent implements OnInit {
       console.log(data);
     })
   }
+
+
 
 }

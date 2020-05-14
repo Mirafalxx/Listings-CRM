@@ -4,6 +4,8 @@ import { map, catchError } from 'rxjs/operators';
 import { Listings } from '../ListingInfo/listings';
 // import { GluedListings } from '../gluedListings';
 import { throwError, Observable } from 'rxjs';
+import { allowedBrand } from '../ListingInfo/allowedBrand';
+import { bannedBrand } from '../ListingInfo/bannedBrand'
 
 
 export interface GluedListings {
@@ -27,16 +29,18 @@ export class ListingService {
   static url = 'http://localhost:3000/api/';
   constructor(private http: HttpClient) { }
 
-  addGluedListing(gluedListing: GluedListings) {
-    return this.http
-      .post('http://localhost:3000/api/joinListing', gluedListing);
-  }
 
 
   addListing(listings: Listings) {
     return this.http
       .post('http://localhost:3000/api/addListing', listings);
   }
+
+  addGluedListing(gluedListing: GluedListings) {
+    return this.http
+      .post('http://localhost:3000/api/joinListing', gluedListing);
+  }
+
 
 
   addManagerListing(managerListing: GluedListings) {
@@ -55,6 +59,31 @@ export class ListingService {
         })
       )
   }
+
+  getBrand() {
+    return this.http.get(`${ListingService.url}/allowedBrand`).
+      pipe(
+        map((data: allowedBrand[]) => {
+          return data;
+        }), catchError(error => {
+          return error
+        })
+      )
+  }
+
+  getBannedBrand() {
+    return this.http.get(`${ListingService.url}/getBannedBrand`).
+      pipe(
+        map((data: bannedBrand[]) => {
+          return data;
+        }), catchError(error => {
+          return error
+        })
+      )
+  }
+
+
+
   getGluedListing() {
     return this.http.get(`${ListingService.url}/gluedListing`).
       pipe(

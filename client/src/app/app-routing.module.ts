@@ -9,10 +9,14 @@ import { AddAsin2Component } from './add-asin2/add-asin2.component';
 import { PartnerTableComponent } from './partner-table/partner-table.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ManagerTableComponent } from './manager-table/manager-table.component';
+import { AuthGuardService } from './shared/auth-guard.service';
+import { BrandConditionComponent } from './brand-condition/brand-condition.component';
+import { BannedComponent } from './banned/banned.component';
 
 
 
 
+// canActivate: [AuthGuardService]
 
 const routes: Routes = [
   { path: '', component: AddAsinComponent },
@@ -22,9 +26,10 @@ const routes: Routes = [
   { path: 'authorization', component: AuthorizationComponent },
   { path: 'partnersTable', component: PartnerTableComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'brand-status', component: BrandConditionComponent },
   { path: 'manager-table', component: ManagerTableComponent },
+  { path: 'banned', component: BannedComponent },
   { path: '**', component: PageNotFoundComponent },
-
 ];
 
 @NgModule({

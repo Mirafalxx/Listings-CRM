@@ -15,6 +15,9 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(255),
             allowNull: false
         },
+        Brand: {
+            type: dataTypes.STRING(255)
+        },
         Partner: {
             type: dataTypes.STRING(255)
         },

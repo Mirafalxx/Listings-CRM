@@ -9,19 +9,23 @@ let {
 
 /* GET users listing. */
 // request-запроc response -ответ
-router.post("/addListing", async (req, res) => {
+router.post("/", async (req, res) => {
   // console.log("Add new listing", req.body);
   try {
     let {
       ProductASIN,
       ProductName,
-      Partner
+      Brand,
+      Partner,
+
     } = req.body;
     if (ProductASIN && ProductName) {
       const response = await Listing.create({
         ProductASIN,
         ProductName,
+        Brand,
         Partner
+
       });
 
       if (response) res.status(200).send({

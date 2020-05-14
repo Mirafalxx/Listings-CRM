@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-modal-window',
@@ -11,12 +12,14 @@ export class ModalWindowComponent implements OnInit {
 
   static url: 'http://localhost:3000/api/joinListing';
   public response: any;
+  form: FormGroup;
+  private formSubmitAttempt: boolean;
 
 
 
   constructor(
     public dialogRef: MatDialogRef<ModalWindowComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any, public http: HttpClient) { }
+    @Inject(MAT_DIALOG_DATA) public data: any, public http: HttpClient, private fb: FormBuilder) { }
 
   partnerListing = {
     listID: this.data.listingId,
@@ -26,12 +29,18 @@ export class ModalWindowComponent implements OnInit {
     NewName: ''
   }
   ngOnInit() {
+    this.form = this.fb.group({
+      NewAsin: ['', Validators.required],
+      NewName: ['', Validators.required]
+    });
   }
 
-  // save() {
-  //   this.dialogRef.close('it was saved');
-  // }
-
+  isFieldInvalid(field: string) {
+    return (
+      (!this.form.get(field).valid && this.form.get(field).touched) ||
+      (this.form.get(field).untouched && this.formSubmitAttempt)
+    );
+  }
   addVariation() {
     this.http.post('http://localhost:3000/api/joinListing', this.partnerListing).subscribe((response) => {
       this.response = response;

@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';
+import { ThrowStmt } from '@angular/compiler';
 
 
 interface Problem {
@@ -38,6 +39,22 @@ export class ProblemModalComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  sendProblem() {
+    this.http.post('http://localhost:3000/api/managerListing', this.partnersListing).subscribe((response) => {
+      this.response = response;
+      console.log(response);
+    })
+    this.deleteListing(this.partnersListing.listID);
+  }
+
+  deleteListing = id => {
+    this.http.delete(`http://localhost:3000/api/deleteGluedListing/${id}`).subscribe((response) => {
+      this.response = response;
+      console.log(this.response);
+      window.location.reload();
+    }, err => console.error(err))
   }
 
 }

@@ -18,8 +18,11 @@
         <a class="menu__link" routerLink="/manager-table" routerLinkActive="active">Manager Partner</a>
       </li>
       <li class="menu__group">
-        <a class="menu__link" routerLink="/split-asin" routerLinkActive="active">Separate</a>
+        <a class="menu__link" routerLink="/brand-status" routerLinkActive="active">Brand</a>
       </li>
+      <!-- <li class="menu__group">
+        <a class="menu__link" routerLink="/banned" routerLinkActive="active">banned brands</a>
+      </li> -->
       <li class="menu__group">
         <a class="menu__link" *ngIf="!auth.isLoggedIn()" routerLink="/authorization">Authorization</a>
         <a class="menu__link" routerLink="" *ngIf="auth.isLoggedIn()" (click)="auth.logOut()">Logout</a>
@@ -27,10 +30,7 @@
     </ul>
   </nav>
 </div>
-
 <router-outlet></router-outlet>
-
-
 <!-- <div class="inner-width">
   <nav class="navigation-menu">
     <a routerLink="/">Add</a>

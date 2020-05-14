@@ -3,4 +3,5 @@ export class Listings {
     ProductASIN: string
     ProductName: string
     Partner?: string
+    Brand?: string
 }

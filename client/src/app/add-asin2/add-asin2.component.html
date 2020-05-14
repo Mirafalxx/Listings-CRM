@@ -23,6 +23,17 @@
           <input matInput placeholder="SMITH & WESSON SWEX2S Extreme Ops. Knife with 40% Serrated Drop Point Blade"
             autocomplete="off" formControlName="ProductName">
         </mat-form-field>
+
+
+        <mat-form-field class="example-full-width">
+          <mat-label *ngIf="brand.pristine && brand.untouched">Brand</mat-label>
+          <mat-label *ngIf="brand.invalid && brand.touched">
+            Please enter Brand
+          </mat-label>
+          <input matInput placeholder="Command" autocomplete="off" formControlName="Brand">
+        </mat-form-field>
+
+
         <mat-form-field class="example-full-width">
           <mat-label *ngIf="partnresName.pristine && partnresName.untouched">Partner</mat-label>
           <mat-label *ngIf="partnresName.invalid && partnresName.touched">

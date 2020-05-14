@@ -32,19 +32,19 @@ export class AddAsin2Component implements OnInit {
     this.myForm = new FormGroup({
       ProductASIN: new FormControl('', [Validators.required, Validators.minLength(10)]),
       ProductName: new FormControl('', Validators.required),
-      Partner: new FormControl('', Validators.required)
-
+      Partner: new FormControl('', Validators.required),
+      Brand: new FormControl('', Validators.required)
     })
   }
   addAsinPartner() {
 
-    let { ProductASIN, ProductName, Partner } = this.myForm.value;
-    const listing: Listings = {
+    let { ProductASIN, ProductName, Partner, Brand } = this.myForm.value;
+    const listing = {
       ProductASIN,
       ProductName,
-      Partner
+      Partner,
+      Brand
     }
-
     if (this.myForm.valid) {
       this.listingService.addListing(listing).subscribe((response) => {
         this.response = response;
@@ -67,6 +67,9 @@ export class AddAsin2Component implements OnInit {
 
   get partnresName() {
     return this.myForm.get('Partner');
+  }
+  get brand() {
+    return this.myForm.get('Brand');
   }
 
 }
