@@ -1,37 +1,35 @@
-<h1 mat-dialog-title>Add variation Form </h1>
+<h1 mat-dialog-title>Добавление Вариации </h1>
 <div mat-dialog-content>
   <div>
     <mat-form-field class="variation-form">
-      <mat-label>Original Asin</mat-label>
+      <mat-label>Оригинальный ASIN</mat-label>
       <input matInput autocomplete="off" [(ngModel)]="partnerListing.OriginalAsin" disabled>
     </mat-form-field>
 
     <mat-form-field class="variation-form">
-      <mat-label>Original Title</mat-label>
+      <mat-label>Оригинальное Название </mat-label>
       <input matInput autocomplete="off" [(ngModel)]="partnerListing.OriginalName" disabled>
     </mat-form-field>
 
-
     <form [formGroup]="form">
       <mat-form-field class=" variation-form">
-        <mat-label>Variation Asin</mat-label>
+        <mat-label>ASIN вариации</mat-label>
         <input matInput autocomplete="off" formControlName="NewAsin" [(ngModel)]="partnerListing.NewAsin">
         <mat-error *ngIf="isFieldInvalid('NewAsin')">
-          Please etner product title
+          Пожалуйста введите ASIN
         </mat-error>
       </mat-form-field>
 
       <mat-form-field class="variation-form">
-        <mat-label> Variation Title</mat-label>
+        <mat-label> Название Вариации</mat-label>
         <input matInput autocomplete="off" formControlName="NewName" [(ngModel)]="partnerListing.NewName">
         <mat-error *ngIf="isFieldInvalid('NewName')">
-          Please etner product title
+          Пожалуйста введите название товара
         </mat-error>
       </mat-form-field>
     </form>
-
   </div>
 </div>
 <div mat-dialog-actions class="btn-wrapper">
-  <button mat-flat-button color="primary" class="send-btn" (click)='addVariation()'>Send</button>
+  <button mat-flat-button color="primary" class="send-btn" (click)='addVariation()'>Отправить</button>
 </div>

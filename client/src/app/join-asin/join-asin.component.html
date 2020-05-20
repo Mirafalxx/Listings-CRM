@@ -2,23 +2,20 @@
   <mat-label>Filter</mat-label>
   <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
 </mat-form-field> -->
-
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
   <ng-container matColumnDef="Asin">
-    <th mat-header-cell *matHeaderCellDef> Asin </th>
+    <th mat-header-cell *matHeaderCellDef class="test"> Asin </th>
     <td mat-cell *matCellDef="let listing">
       <a href="https://www.amazon.com/dp/{{listing.ProductASIN}}" class="listing-link" target="_blank">
         {{listing.ProductASIN}}</a>
     </td>
-
   </ng-container>
 
   <ng-container matColumnDef="Title">
-    <th mat-header-cell *matHeaderCellDef> Title </th>
+    <th mat-header-cell *matHeaderCellDef> Название </th>
     <td mat-cell *matCellDef="let listing"> {{listing.ProductName}} </td>
   </ng-container>
-
 
   <ng-container matColumnDef="Listing">
     <th mat-header-cell *matHeaderCellDef class="main-row"> Добавить вариациию </th>
@@ -30,12 +27,12 @@
   </ng-container>
 
   <ng-container matColumnDef="Partner">
-    <th mat-header-cell *matHeaderCellDef class="main-row"> Partner </th>
+    <th mat-header-cell *matHeaderCellDef class="main-row"> Партнер </th>
     <td mat-cell *matCellDef="let listing"> {{listing.Partner}} </td>
   </ng-container>
 
   <ng-container matColumnDef="take">
-    <th mat-header-cell *matHeaderCellDef class="main-row"> Employee </th>
+    <th mat-header-cell *matHeaderCellDef class="main-row"> </th>
     <td mat-cell *matCellDef="let listing">
     </td>
   </ng-container>

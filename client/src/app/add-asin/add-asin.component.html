@@ -6,30 +6,47 @@
       </span>
       <mat-form-field class="example-full-width asin-input">
         <mat-label *ngIf="asin.pristine && asin.untouched">ASIN</mat-label>
-        <mat-label *ngIf="asin.invalid && asin.touched" class="">
-          Your asin does not look right
+        <mat-label *ngIf="asin.invalid && asin.touched">
+          Введите ASIN
         </mat-label>
         <input matInput placeholder="B012BKZC86" autocomplete="off" formControlName="ProductASIN">
       </mat-form-field>
 
-
       <mat-form-field class="example-full-width">
-        <mat-label *ngIf="product.pristine && product.untouched">Product name</mat-label>
+        <mat-label *ngIf="product.pristine && product.untouched">Наименование товара</mat-label>
         <mat-label *ngIf="product.invalid && product.touched">
-          Please enter product name
+          Введите название товара
         </mat-label>
         <input matInput placeholder="SMITH & WESSON SWEX2S Extreme Ops. Knife with 40% Serrated Drop Point Blade"
           autocomplete="off" formControlName="ProductName">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <mat-label *ngIf="brand.pristine && brand.untouched">Brand Name</mat-label>
+        <mat-label *ngIf="brand.pristine && brand.untouched">Бренд</mat-label>
         <mat-label *ngIf="brand.invalid && brand.touched">
-          Please enter Brand
+          Введите бренд
         </mat-label>
         <input matInput placeholder="Command" autocomplete="off" formControlName="Brand">
       </mat-form-field>
-      <div class="container-contact2-form-btn">
+
+      <mat-checkbox color="primary" [(ngModel)]="partnerCheckBox" [ngModelOptions]="{standalone: true}">Добавить
+        Партнера?
+      </mat-checkbox>
+
+      <mat-form-field class="example-full-width" *ngIf="partnerCheckBox">
+        <mat-label *ngIf="partnresName.pristine && partnresName.untouched">Партнер</mat-label>
+        <mat-label *ngIf="partnresName.invalid && partnresName.touched">
+          Выберите партнера
+        </mat-label>
+        <mat-select formControlName="Partner">
+          <mat-option *ngFor="let partners of partner" [value]="partners.value">
+            {{partners.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div *ngIf="myModel">SSS</div>
+      <div class=" container-contact2-form-btn">
         <div class="wrap-contact2-form-btn">
           <div class="contact2-form-bgbtn"></div>
           <button class="contact2-form-btn btn" (click)="addAsin()" [disabled]="myForm.invalid">

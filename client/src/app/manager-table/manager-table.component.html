@@ -1,12 +1,12 @@
 <mat-form-field>
-  <mat-label>Filter</mat-label>
-  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
+  <mat-label>Поиск</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" autocomplete="off">
 </mat-form-field>
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
   <ng-container matColumnDef="OriginalAsin">
-    <th mat-header-cell *matHeaderCellDef> Asin </th>
+    <th mat-header-cell *matHeaderCellDef> ASIN </th>
     <td mat-cell *matCellDef="let managerListing">
       <a href="https://www.amazon.com/dp/{{managerListing.OriginalAsin}}" class="listing-link">
         {{managerListing.OriginalAsin}}</a>
@@ -14,18 +14,18 @@
   </ng-container>
 
   <ng-container matColumnDef="OriginalName">
-    <th mat-header-cell *matHeaderCellDef> Title </th>
+    <th mat-header-cell *matHeaderCellDef> Название </th>
     <td mat-cell *matCellDef="let managerListing"> {{managerListing.OriginalName}} </td>
   </ng-container>
   <ng-container matColumnDef="NewAsin">
-    <th mat-header-cell *matHeaderCellDef> Variation Asin </th>
+    <th mat-header-cell *matHeaderCellDef> ASIN Вариации </th>
     <td mat-cell *matCellDef="let managerListing">
       {{managerListing.NewAsin}}
     </td>
   </ng-container>
 
   <ng-container matColumnDef="NewName">
-    <th mat-header-cell *matHeaderCellDef> Variation title </th>
+    <th mat-header-cell *matHeaderCellDef> Название Вариации </th>
     <td mat-cell *matCellDef="let managerListing"> {{managerListing.NewName}} </td>
   </ng-container>
 
@@ -35,13 +35,13 @@
   </ng-container>
 
   <ng-container matColumnDef="Problem">
-    <th mat-header-cell *matHeaderCellDef> Problem </th>
+    <th mat-header-cell *matHeaderCellDef> Проблема </th>
     <td mat-cell *matCellDef="let managerListing">{{managerListing.Problem}}</td>
   </ng-container>
 
 
   <ng-container matColumnDef="returnListing">
-    <th mat-header-cell *matHeaderCellDef> Return </th>
+    <th mat-header-cell *matHeaderCellDef> Вернуть в работу </th>
     <td mat-cell *matCellDef="let listing">
       <button mat-flat-button color="primary" class="btn-prob" (click)="openReturnModal()">return</button>
     </td>

@@ -6,7 +6,7 @@
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
   <ng-container matColumnDef="OriginalAsin">
-    <th mat-header-cell *matHeaderCellDef> Original Asin </th>
+    <th mat-header-cell *matHeaderCellDef> ASIN </th>
     <td mat-cell *matCellDef="let listing">
       <a href="https://www.amazon.com/dp/{{listing.OriginalAsin}}" class="listing-link" target="_blank">
         {{listing.OriginalAsin}}</a>
@@ -14,13 +14,13 @@
   </ng-container>
 
   <ng-container matColumnDef="OriginalName">
-    <th mat-header-cell *matHeaderCellDef> Original Title </th>
+    <th mat-header-cell *matHeaderCellDef> Наименование </th>
     <td mat-cell *matCellDef="let listing"> {{listing.OriginalName}} </td>
   </ng-container>
 
 
   <ng-container matColumnDef="NewAsin">
-    <th mat-header-cell *matHeaderCellDef> Asin </th>
+    <th mat-header-cell *matHeaderCellDef> ASIN Вариации </th>
     <td mat-cell *matCellDef="let listing">
       <a href="https://www.amazon.com/dp/{{listing.NewAsin}}" class="listing-link" target="_blank">
         {{listing.ProductASIN}}</a>
@@ -28,16 +28,16 @@
   </ng-container>
 
   <ng-container matColumnDef="NewName">
-    <th mat-header-cell *matHeaderCellDef> Title </th>
+    <th mat-header-cell *matHeaderCellDef> Наименование Вариации </th>
     <td mat-cell *matCellDef="let listing"> {{listing.NewName}} </td>
   </ng-container>
 
 
 
   <ng-container matColumnDef="takeProblem">
-    <th mat-header-cell *matHeaderCellDef> Problem </th>
+    <th mat-header-cell *matHeaderCellDef> Проблема </th>
     <td mat-cell *matCellDef="let listing">
-      <button mat-flat-button color="warn" class="btn" (click)='openDialog()'>Choose problem</button>
+      <button mat-flat-button color="warn" class="btn" (click)='openDialog()'>Проблема</button>
     </td>
   </ng-container>
 

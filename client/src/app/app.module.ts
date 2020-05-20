@@ -13,7 +13,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations'
 import { MatInputModule } from '@angular/material/input';
 import { ListingsComponent } from './listings/listings.component';
-import { AddAsin2Component } from './add-asin2/add-asin2.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { PartnerTableComponent } from './partner-table/partner-table.component';
@@ -31,6 +30,8 @@ import { BrandConditionComponent } from './brand-condition/brand-condition.compo
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BannedComponent } from './banned/banned.component';
 import { BanBrandModalComponent } from './ban-brand-modal/ban-brand-modal.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
 
 
 @NgModule({
@@ -43,7 +44,6 @@ import { BanBrandModalComponent } from './ban-brand-modal/ban-brand-modal.compon
     JoinAsinComponent,
     AuthorizationComponent,
     ListingsComponent,
-    AddAsin2Component,
     PartnerTableComponent,
     ModalWindowComponent,
     ProfileComponent,
@@ -69,7 +69,8 @@ import { BanBrandModalComponent } from './ban-brand-modal/ban-brand-modal.compon
     MatDialogModule,
     MatSnackBarModule,
     MatCardModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatCheckboxModule
   ],
   entryComponents: [
     ModalWindowComponent,
