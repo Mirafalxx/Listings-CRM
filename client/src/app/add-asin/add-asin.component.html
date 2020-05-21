@@ -28,6 +28,9 @@
         </mat-label>
         <input matInput placeholder="Command" autocomplete="off" formControlName="Brand">
       </mat-form-field>
+      <div *ngIf="brand.errors.forbiddenName">
+        Name cannot be Bob.
+      </div>
 
       <mat-checkbox color="primary" [(ngModel)]="partnerCheckBox" [ngModelOptions]="{standalone: true}">Добавить
         Партнера?
@@ -44,8 +47,6 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-
-      <div *ngIf="myModel">SSS</div>
       <div class=" container-contact2-form-btn">
         <div class="wrap-contact2-form-btn">
           <div class="contact2-form-bgbtn"></div>

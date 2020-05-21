@@ -7,6 +7,7 @@ import { ListingService } from '../shared/listing.service'
 import { HttpClient } from '@angular/common/http';
 import { Listings } from '../ListingInfo/listings';
 import { ToastrComponent } from '../toastr/toastr.component';
+import { forbiddenBrandValidator } from '../validation/teeee';
 
 
 interface Partners {
@@ -39,11 +40,9 @@ export class AddAsinComponent implements OnInit {
       ProductASIN: new FormControl('', [Validators.required, Validators.minLength(10)]),
       ProductName: new FormControl('', Validators.required),
       Partner: new FormControl('', Validators.required),
-      Brand: new FormControl('', Validators.required),
-    })
+      Brand: new FormControl('', [Validators.required, forbiddenBrandValidator(/bob/i)]),
+    });
   }
-
-
 
   get asin() {
     return this.myForm.get('ProductASIN');
@@ -80,7 +79,12 @@ export class AddAsinComponent implements OnInit {
     this.myForm.reset();
     // this.addBrand();
   }
-
+  getBannedBrands() {
+    this.listingService.getBannedBrand().subscribe((response) => {
+      this.response = response;
+      console.log(this.response);
+    })
+  }
 
   // addBrand() {
   //   const Brand = this.myForm.value;

@@ -31,6 +31,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { BannedComponent } from './banned/banned.component';
 import { BanBrandModalComponent } from './ban-brand-modal/ban-brand-modal.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { ValidationComponent } from './validation/validation.component';
 
 
 
@@ -53,7 +54,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     ReturnModalComponent,
     BrandConditionComponent,
     BannedComponent,
-    BanBrandModalComponent
+    BanBrandModalComponent,
+    ValidationComponent
   ],
   imports: [
     BrowserModule,
