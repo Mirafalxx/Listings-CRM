@@ -80,8 +80,8 @@ export class AddAsinComponent implements OnInit {
     // this.addBrand();
   }
   getBannedBrands() {
-    this.listingService.getBannedBrand().subscribe((response) => {
-      this.response = response;
+    this.listingService.getBannedBrand().subscribe((data: any) => {
+      this.response = data;
       console.log(this.response);
     })
   }
