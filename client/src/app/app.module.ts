@@ -17,7 +17,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { PartnerTableComponent } from './partner-table/partner-table.component';
 import { MatTableModule } from '@angular/material/table';
-import { ModalWindowComponent } from './modal-window/modal-window.component';
+// import { ModalWindowComponent } from '../modal-window/modal-window.component';
+import { ModalWindowComponent } from '../app/modal-window/modal-window.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ProfileComponent } from './profile/profile.component';
 import { ToastrComponent } from './toastr/toastr.component';
@@ -31,7 +32,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { BannedComponent } from './banned/banned.component';
 import { BanBrandModalComponent } from './ban-brand-modal/ban-brand-modal.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { ValidationComponent } from './validation/validation.component';
+import { from } from 'rxjs';
 
 
 
@@ -55,7 +56,6 @@ import { ValidationComponent } from './validation/validation.component';
     BrandConditionComponent,
     BannedComponent,
     BanBrandModalComponent,
-    ValidationComponent
   ],
   imports: [
     BrowserModule,

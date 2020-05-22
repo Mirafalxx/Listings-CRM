@@ -7,7 +7,7 @@ import { ListingService } from '../shared/listing.service'
 import { HttpClient } from '@angular/common/http';
 import { Listings } from '../ListingInfo/listings';
 import { ToastrComponent } from '../toastr/toastr.component';
-import { forbiddenBrandValidator } from '../validation/teeee';
+
 
 
 interface Partners {
@@ -40,7 +40,7 @@ export class AddAsinComponent implements OnInit {
       ProductASIN: new FormControl('', [Validators.required, Validators.minLength(10)]),
       ProductName: new FormControl('', Validators.required),
       Partner: new FormControl('', Validators.required),
-      Brand: new FormControl('', [Validators.required, forbiddenBrandValidator(/bob/i)]),
+      Brand: new FormControl('', [Validators.required]),
     });
   }
 

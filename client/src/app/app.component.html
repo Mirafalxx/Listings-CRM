@@ -1,11 +1,10 @@
-<div class="page">
+<div class="page" *ngIf="auth.isLoggedIn()">
   <nav class="menu">
     <ul class="menu__list">
       <li class="menu__group">
         <a class="menu__link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Add
         </a>
       </li>
-
       <li class="menu__group">
         <a class="menu__link" routerLink="/join-asin" routerLinkActive="active">Join Asin</a>
       </li>
@@ -17,9 +16,6 @@
       </li>
       <li class="menu__group">
         <a class="menu__link" routerLink="/brand-status" routerLinkActive="active">Brand</a>
-      </li>
-      <li class="menu__group">
-        <a class="menu__link" routerLink="/valid" routerLinkActive="active">validation</a>
       </li>
       <li class="menu__group">
         <a class="menu__link" *ngIf="!auth.isLoggedIn()" routerLink="/authorization">Authorization</a>

@@ -11,7 +11,6 @@ import { ManagerTableComponent } from './manager-table/manager-table.component';
 import { AuthGuardService } from './shared/auth-guard.service';
 import { BrandConditionComponent } from './brand-condition/brand-condition.component';
 import { BannedComponent } from './banned/banned.component';
-import { ValidationComponent } from './validation/validation.component';
 
 
 
@@ -19,7 +18,7 @@ import { ValidationComponent } from './validation/validation.component';
 // canActivate: [AuthGuardService]
 
 const routes: Routes = [
-  { path: '', component: AddAsinComponent },
+  { path: '', component: AddAsinComponent, canActivate: [AuthGuardService] },
   { path: 'join-asin', component: JoinAsinComponent },
   { path: 'split-asin', component: SplitAsinComponent },
   { path: 'authorization', component: AuthorizationComponent },
@@ -28,7 +27,6 @@ const routes: Routes = [
   { path: 'brand-status', component: BrandConditionComponent },
   { path: 'manager-table', component: ManagerTableComponent },
   { path: 'banned', component: BannedComponent },
-  { path: 'valid', component: ValidationComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 
