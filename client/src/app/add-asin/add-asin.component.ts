@@ -25,6 +25,7 @@ export class AddAsinComponent implements OnInit {
   static url = 'http://localhost:3000/api/';
   myForm: FormGroup;
   response: any;
+  submitted = false;
   partnerCheckBox = false;
   constructor(private listingService: ListingService,
     private http: HttpClient, private _snackBar: MatSnackBar) {

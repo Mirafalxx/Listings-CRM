@@ -4,9 +4,6 @@ import { Router } from '@angular/router'
 
 
 
-
-
-
 @Component({
   selector: 'app-authorization',
   templateUrl: './authorization.component.html',
@@ -18,6 +15,7 @@ export class AuthorizationComponent implements OnInit {
     email: '',
     password: ''
   }
+  error = '';
 
 
   constructor(private auth: AuthenticationService, private router: Router) { }
@@ -35,6 +33,7 @@ export class AuthorizationComponent implements OnInit {
 
       },
       err => {
+        this.error = err
         console.error(err)
       }
     )
