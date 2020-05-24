@@ -217,6 +217,12 @@ iframe {
   left: 0;
 }
 
-/* .partnerInputField {
-  margin-bottom: 300px;
-} */
+.invalid-feedback {
+  /* color: red; */
+  margin-top: -20px;
+
+}
+
+.invalid-feedback-lst {
+  margin-bottom: 20px;
+}

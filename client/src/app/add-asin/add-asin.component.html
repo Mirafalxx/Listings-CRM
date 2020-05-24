@@ -1,52 +1,55 @@
-<form [formGroup]="myForm" (ngSubmit)="addAsin()">
+<form [formGroup]="addAsinFrom" (ngSubmit)="addAsin()">
   <div class="container-contact2">
     <div class="wrap-contact2">
       <span class="contact2-form-title">
         Добавление товара
       </span>
+
       <mat-form-field class="example-full-width asin-input">
-        <mat-label *ngIf="asin.pristine && asin.untouched">ASIN</mat-label>
-        <mat-label *ngIf="asin.invalid && asin.touched">
-          Введите ASIN
-        </mat-label>
-        <input matInput placeholder="B012BKZC86" autocomplete="off" formControlName="ProductASIN">
+        <mat-label>ASIN</mat-label>
+        <input matInput formControlName="ProductASIN" [ngClass]="{ 'is-invalid': submitted && f.ProductASIN.errors }"
+          autocomplete="off">
       </mat-form-field>
-
-      <mat-form-field class="example-full-width">
-        <mat-label *ngIf="product.pristine && product.untouched">Наименование товара</mat-label>
-        <mat-label *ngIf="product.invalid && product.touched">
-          Введите название товара
-        </mat-label>
-        <input matInput placeholder="SMITH & WESSON SWEX2S Extreme Ops. Knife with 40% Serrated Drop Point Blade"
-          autocomplete="off" formControlName="ProductName">
-      </mat-form-field>
-
-      <mat-form-field class="example-full-width">
-        <mat-label *ngIf="brand.pristine && brand.untouched">Бренд</mat-label>
-        <mat-label *ngIf="brand.invalid && brand.touched">
-          Введите бренд
-        </mat-label>
-        <input matInput placeholder="Command" autocomplete="off" formControlName="Brand">
-      </mat-form-field>
-      <div *ngIf="brand.errors.forbiddenName">
-        Name cannot be Bob.
+      <div *ngIf="submitted && f.ProductASIN.errors" class="invalid-feedback">
+        <mat-label *ngIf="f.ProductASIN.errors.required">Введите ASIN</mat-label>
       </div>
 
-      <mat-checkbox color="primary" [(ngModel)]="partnerCheckBox" [ngModelOptions]="{standalone: true}">Добавить
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Наименование товара</mat-label>
+        <input matInput autocomplete="off" formControlName="ProductName">
+      </mat-form-field>
+      <div *ngIf="submitted && f.ProductName.errors" class="invalid-feedback">
+        <mat-label *ngIf="f.ProductName.errors.required">Введите Название товара</mat-label>
+      </div>
+
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Бренд</mat-label>
+        <input matInput autocomplete="off" formControlName="Brand">
+      </mat-form-field>
+      <div *ngIf="submitted && f.Brand.errors" class="invalid-feedback-lst">
+        <mat-label *ngIf="f.Brand.errors.required">Введите Бренд</mat-label>
+      </div>
+
+
+      <mat-checkbox color="primary" [(ngModel)]="partnerCheckBox" [ngModelOptions]="{standalone: true}"
+        class="tetchbck">Добавить
         Партнера?
       </mat-checkbox>
 
       <mat-form-field class="example-full-width" *ngIf="partnerCheckBox">
-        <mat-label *ngIf="partnresName.pristine && partnresName.untouched">Партнер</mat-label>
-        <mat-label *ngIf="partnresName.invalid && partnresName.touched">
-          Выберите партнера
-        </mat-label>
+
         <mat-select formControlName="Partner">
           <mat-option *ngFor="let partners of partner" [value]="partners.value">
             {{partners.viewValue}}
           </mat-option>
         </mat-select>
       </mat-form-field>
+      <!-- <div *ngIf="submitted && f.Partner.errors" class="invalid-feedback">
+        <mat-label *ngIf="f.Partner.errors.required">Введите Партнера</mat-label>
+      </div> -->
+
       <div class=" container-contact2-form-btn">
         <div class="wrap-contact2-form-btn">
           <div class="contact2-form-bgbtn"></div>

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl, ControlContainer } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
-// import { HttpClient } from "@angular/common/http";
 import { ListingService } from '../shared/listing.service'
 import { HttpClient } from '@angular/common/http';
 import { Listings } from '../ListingInfo/listings';
@@ -23,12 +21,14 @@ interface Partners {
 export class AddAsinComponent implements OnInit {
 
   static url = 'http://localhost:3000/api/';
-  myForm: FormGroup;
+  addAsinFrom: FormGroup;
   response: any;
   submitted = false;
   partnerCheckBox = false;
   constructor(private listingService: ListingService,
-    private http: HttpClient, private _snackBar: MatSnackBar) {
+    private http: HttpClient,
+    private _snackBar: MatSnackBar,
+    private formBuilder: FormBuilder) {
   }
   partner: Partners[] = [
     { value: 'Dima', viewValue: 'Дима' },
@@ -37,31 +37,21 @@ export class AddAsinComponent implements OnInit {
   ];
 
   ngOnInit() {
-    this.myForm = new FormGroup({
-      ProductASIN: new FormControl('', [Validators.required, Validators.minLength(10)]),
-      ProductName: new FormControl('', Validators.required),
-      Partner: new FormControl('', Validators.required),
-      Brand: new FormControl('', [Validators.required]),
+    this.addAsinFrom = this.formBuilder.group({
+      ProductASIN: ['', [Validators.required, Validators.minLength(6)]],
+      ProductName: ['', Validators.required],
+      Brand: ['', Validators.required],
+      Partner: ['']
     });
   }
 
-  get asin() {
-    return this.myForm.get('ProductASIN');
-  }
-  get product() {
-    return this.myForm.get('ProductName')
-  }
+  get f() { return this.addAsinFrom.controls }
 
-  get partnresName() {
-    return this.myForm.get('Partner');
-  }
 
-  get brand() {
-    return this.myForm.get('Brand')
-  }
+
 
   addAsin() {
-    const { ProductASIN, ProductName, Brand, Partner } = this.myForm.value;
+    const { ProductASIN, ProductName, Brand, Partner } = this.addAsinFrom.value;
 
     const listing: Listings = {
       ProductASIN,
@@ -69,16 +59,19 @@ export class AddAsinComponent implements OnInit {
       Partner,
       Brand
     }
+
+    this.submitted = true;
+    if (this.addAsinFrom.invalid) return;
+
+
     this.listingService.addListing(listing).subscribe((response) => {
       this.response = response;
       console.log(this.response);
       this.openSnackBar();
-      this.myForm.reset();
-      window.location.reload();
-    }, err => console.error(err));
 
-    this.myForm.reset();
-    // this.addBrand();
+    }, err => console.error(err));
+    window.location.reload();
+
   }
   getBannedBrands() {
     this.listingService.getBannedBrand().subscribe((data: any) => {

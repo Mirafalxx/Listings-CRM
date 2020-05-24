@@ -11,6 +11,7 @@ import { ManagerTableComponent } from './manager-table/manager-table.component';
 import { AuthGuardService } from './shared/auth-guard.service';
 import { BrandConditionComponent } from './brand-condition/brand-condition.component';
 import { BannedComponent } from './banned/banned.component';
+import { TestThingsComponent } from './test-things/test-things.component';
 
 
 
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'brand-status', component: BrandConditionComponent },
   { path: 'manager-table', component: ManagerTableComponent },
   { path: 'banned', component: BannedComponent },
+  { path: '1', component: TestThingsComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 

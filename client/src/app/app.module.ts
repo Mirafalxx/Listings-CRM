@@ -32,7 +32,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { BannedComponent } from './banned/banned.component';
 import { BanBrandModalComponent } from './ban-brand-modal/ban-brand-modal.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { from } from 'rxjs';
+import { TestThingsComponent } from './test-things/test-things.component';
+import { MatIconModule } from '@angular/material/icon';
+
 
 
 
@@ -56,6 +58,7 @@ import { from } from 'rxjs';
     BrandConditionComponent,
     BannedComponent,
     BanBrandModalComponent,
+    TestThingsComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,7 +75,9 @@ import { from } from 'rxjs';
     MatSnackBarModule,
     MatCardModule,
     MatFormFieldModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatIconModule,
+
   ],
   entryComponents: [
     ModalWindowComponent,

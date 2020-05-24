@@ -29,6 +29,8 @@ export class JoinAsinComponent implements OnInit {
   }
 
 
+  // value = this.selectedRow.
+
   varAsin: string;
   varName: string;
 
@@ -77,5 +79,10 @@ export class JoinAsinComponent implements OnInit {
       this.dataSource = new MatTableDataSource(data)
       console.log(data);
     })
+  }
+
+  test() {
+    console.log('test');
+
   }
 }
