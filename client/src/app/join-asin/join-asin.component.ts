@@ -81,8 +81,5 @@ export class JoinAsinComponent implements OnInit {
     })
   }
 
-  test() {
-    console.log('test');
 
-  }
 }

@@ -30,7 +30,6 @@ export class BanBrandModalComponent implements OnInit {
     this.http.post('http://localhost:3000/api/bannedBrand', this.brandCondition).subscribe((response) => {
       this.response = response;
       console.log(this.response);
-
       this.dialogRef.close('da')
     }, err => console.error(err));
     // console.log(this.brandCondition.Status);

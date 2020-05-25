@@ -37,7 +37,6 @@ import { MatIconModule } from '@angular/material/icon';
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,7 +76,6 @@ import { MatIconModule } from '@angular/material/icon';
     MatFormFieldModule,
     MatCheckboxModule,
     MatIconModule,
-
   ],
   entryComponents: [
     ModalWindowComponent,

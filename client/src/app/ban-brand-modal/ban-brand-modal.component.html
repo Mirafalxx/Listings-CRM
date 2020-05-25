@@ -1,13 +1,24 @@
-<h1 mat-dialog-title>Ban Brand Form </h1>
+<!-- <h1 mat-dialog-title>Забанить Бренд</h1>
 <div mat-dialog-content>
   <div mat-dialog-actions class="btn-wrapper">
     <mat-form-field class="variation-form">
-      <mat-label>Original Title</mat-label>
-      <input matInput autocomplete="off" disabled [(ngModel)]="brandCondition.BrandName">
+      <mat-label></mat-label>
+      <input matInput autocomplete="off" disabled [(ngModel)]="brandCondition.Brand">
     </mat-form-field>
-    <!-- <mat-form-field class="variation-form">
-      <mat-label>Original Title</mat-label>
-      <input matInput autocomplete="off" disabled [(ngModel)]="brandCondition.Status">
-    </mat-form-field> -->
     <button mat-flat-button color="warn" class="send-btn" (click)='banBrand()'>Ban</button>
   </div>
+</div> -->
+
+
+<div class="test">
+  <h1 mat-dialog-title>Забанить Бренд</h1>
+  <div mat-dialog-content>
+    <mat-form-field>
+      <mat-label>Бренд</mat-label>
+      <input matInput autocomplete="off" disabled [(ngModel)]="brandCondition.Brand">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-flat-button color="warn" class="send-btn" (click)='banBrand()'>Забанить</button>
+  </div>
+</div>
