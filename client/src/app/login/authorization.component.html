@@ -2,53 +2,15 @@
   <p class="auth-title">Авторизация</p>
 
   <mat-form-field class=" auth-input">
-    <input matInput placeholder="Login" autocomplete="off" [(ngModel)]="credentials.email">
+
+    <input matInput placeholder="Логин" autocomplete="off" [(ngModel)]="credentials.email" autocomplete="off">
   </mat-form-field>
   <mat-form-field class="auth-input">
-    <input matInput placeholder="Password" autocomplete="off" type="password" [(ngModel)]="credentials.password">
+    <input matInput placeholder="Пароль" autocomplete="off" type="password" [(ngModel)]="credentials.password"
+      autocomplete="off">
   </mat-form-field>
 
   <button class="auth-button" (click)='login()'>
     Войти
   </button>
-
-
 </div>
-
-<!-- 
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 mt-5 mx-auto">
-      <form (submit)="login()">
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <div class="form-group">
-          <label for="email">Email address</label>
-          <input type="email" class="form-control" name="email" placeholder="Enter email"
-            [(ngModel)]="credentials.email">
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" class="form-control" name="password" placeholder="Password"
-            [(ngModel)]="credentials.password">
-        </div>
-        <button type="submit" class="btn btn-lg btn-primary btn-block">Sign in</button>
-      </form>
-    </div>
-  </div>
-</div> -->
-
-
-<!-- 
-<div class="authorization-form">
-  <p class="auth-title">Авторизация</p>
-  <mat-form-field class=" auth-input">
-    <input matInput placeholder="Login" autocomplete="off" [(ngModel)]="credentials.email">
-  </mat-form-field>
-  <mat-form-field class="auth-input">
-    <input matInput placeholder="Password" autocomplete="off" type="password" [(ngModel)]="credentials.passwrod">
-  </mat-form-field>
-
-  <button class="auth-button" (click)='login()'>
-    Войти
-  </button>
-</div> -->

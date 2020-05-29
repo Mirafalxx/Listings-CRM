@@ -19,6 +19,7 @@ import { TestThingsComponent } from './test-things/test-things.component';
 // canActivate: [AuthGuardService]
 
 const routes: Routes = [
+  { path: '1', component: TestThingsComponent, canActivate: [AuthGuardService] },
   { path: '', component: AddAsinComponent },
   { path: 'join-asin', component: JoinAsinComponent },
   { path: 'split-asin', component: SplitAsinComponent },
@@ -28,7 +29,6 @@ const routes: Routes = [
   { path: 'brand-status', component: BrandConditionComponent },
   { path: 'manager-table', component: ManagerTableComponent },
   { path: 'banned', component: BannedComponent },
-  { path: '1', component: TestThingsComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 

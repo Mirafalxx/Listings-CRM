@@ -5,6 +5,28 @@ table {
 .mat-header-cell {
   text-transform: uppercase;
   color: #000000;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 14px;
+}
+
+.mat-row td,
+a {
+  color: #3f80ff !important;
+}
+
+.listing-link {
+  text-decoration: none;
+  color: #000000;
+}
+
+td {
+  font-size: 12px;
+}
+
+.listing-link:hover {
+  text-decoration: underline;
+}
+
+.mat-row td {
+  padding: 20px;
 }

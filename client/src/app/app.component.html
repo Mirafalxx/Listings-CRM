@@ -1,5 +1,4 @@
-<!-- *ngIf="auth.isLoggedIn()" -->
-<div class="page">
+<div class="page" *ngIf="auth.isLoggedIn()">
   <nav class="menu">
     <ul class="menu__list">
       <li class="menu__group">
@@ -26,17 +25,3 @@
   </nav>
 </div>
 <router-outlet></router-outlet>
-<!-- <div class="inner-width">
-  <nav class="navigation-menu">
-    <a routerLink="/">Add</a>
-    <a routerLink="/addAsin">Add2</a>
-    <a routerLink="/join-asin">Join</a>
-    <a routerLink="/split-asin">Separate</a>
-    <a routerLink="/partnersTable">Partners table</a>
-
-    <a routerLink="/manager-table">Manager table</a>
-    <a *ngIf="!auth.isLoggedIn()" routerLink="/authorization">Authorization</a>
-    <a class="nav-link" *ngIf="auth.isLoggedIn()" routerLink="/profile">{{ auth.getUserDetails()?.email }}</a>
-    <a class="nav-link" routerLink="" *ngIf="auth.isLoggedIn()" (click)="auth.logOut()">Logout</a>
-  </nav>
-</div> -->

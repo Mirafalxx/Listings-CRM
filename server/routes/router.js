@@ -34,7 +34,6 @@ router.use('/addBrand', addPermittedBrand);
 router.use('/bannedBrand', addBannedBrand)
 router.use('/deleteAllowedBrand', deleteAllowedBrand);
 
-
 /* POST REQUESTS*/
 
 /*GET REQUESTS */

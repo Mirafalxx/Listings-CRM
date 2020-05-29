@@ -16,6 +16,5 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.isLoggedIn$ = this.auth.isALoggedIn;
   }
-  // title = 'client';
 
 }

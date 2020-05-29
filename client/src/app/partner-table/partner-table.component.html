@@ -23,7 +23,7 @@
     <th mat-header-cell *matHeaderCellDef> ASIN Вариации </th>
     <td mat-cell *matCellDef="let listing">
       <a href="https://www.amazon.com/dp/{{listing.NewAsin}}" class="listing-link" target="_blank">
-        {{listing.ProductASIN}}</a>
+        {{listing.NewAsin}}</a>
     </td>
   </ng-container>
 
@@ -38,6 +38,7 @@
     <th mat-header-cell *matHeaderCellDef> Проблема </th>
     <td mat-cell *matCellDef="let listing">
       <button mat-flat-button color="warn" class="btn" (click)='openDialog()'>Проблема</button>
+
     </td>
   </ng-container>
 

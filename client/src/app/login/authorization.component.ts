@@ -30,7 +30,6 @@ export class AuthorizationComponent implements OnInit {
       () => {
         this.router.navigate(['/join-asin'])
         console.log('test');
-
       },
       err => {
         this.error = err
