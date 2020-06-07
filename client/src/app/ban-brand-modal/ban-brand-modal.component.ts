@@ -32,14 +32,13 @@ export class BanBrandModalComponent implements OnInit {
       console.log(this.response);
       this.dialogRef.close('da')
     }, err => console.error(err));
-    // console.log(this.brandCondition.Status);
     this.deleteAllowedBrand(this.brandCondition.brandID);
   }
 
 
 
   deleteAllowedBrand(brandID) {
-    this.http.delete(`http://localhost:3000/api/deleteAllowedBrand/${brandID}`).subscribe((response) => {
+    this.http.delete(`http://localhost:3000/api/brands/delete/${brandID}`).subscribe((response) => {
       this.response = response;
       console.log(this.response);
       window.location.reload();

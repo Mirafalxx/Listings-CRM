@@ -42,7 +42,7 @@ export class ModalWindowComponent implements OnInit {
     );
   }
   addVariation() {
-    this.http.post('http://localhost:3000/api/joinListing', this.partnerListing).subscribe((response) => {
+    this.http.post('http://localhost:3000/api/variation-listings/new', this.partnerListing).subscribe((response) => {
       this.response = response;
       console.log(this.response);
       this.dialogRef.close('da')
@@ -52,7 +52,7 @@ export class ModalWindowComponent implements OnInit {
   }
 
   deleteListing(listingID) {
-    this.http.delete(`http://localhost:3000/api/deleteListing/${listingID}`).subscribe((response) => {
+    this.http.delete(`http://localhost:3000/api/listings/delete/${listingID}`).subscribe((response) => {
       this.response = response;
       console.log(this.response);
       window.location.reload();

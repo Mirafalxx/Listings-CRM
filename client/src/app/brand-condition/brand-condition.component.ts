@@ -71,7 +71,7 @@ export class BrandConditionComponent implements OnInit {
 
   addBrand() {
     const Brand = this.myForm.value;
-    this.http.post('http://localhost:3000/api/addBrand', Brand).subscribe((response) => {
+    this.http.post('http://localhost:3000/api/brands/new', Brand).subscribe((response) => {
       console.log(response);
       this.openSnackBar();
       window.location.reload();

@@ -6,7 +6,7 @@ const {
 } = require("../models");
 
 // request-запроc response -ответ
-router.post("/", async (req, res) => {
+router.post("/new", async (req, res) => {
     console.log("Add new manager Listings", req.body);
     try {
         let {
@@ -39,6 +39,44 @@ router.post("/", async (req, res) => {
             error: "An error occurred while trying to add new listing"
         });
     }
+});
+
+router.get("/all", async (req, res) => {
+    try {
+        const getManagerListing = await managerListing.findAll();
+        res.send(getManagerListing);
+
+    } catch (err) {
+        res.status(500).json({
+            error: "An error occurred while trying to get  listings"
+        });
+    }
+});
+
+router.delete("/delete/:id", async (req, res) => {
+    const id = req.params.id;
+
+    await managerListing.destroy({
+            where: {
+                id: id
+            }
+        })
+        .then(num => {
+            if (num == 1) {
+                res.send({
+                    message: "Glued Listing was deleted successfully!"
+                });
+            } else {
+                res.send({
+                    message: `Cannot delete Glued Listing with id=${id}. Maybe Listing was not found!`
+                });
+            }
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: "Could not delete Listing with id=" + id
+            });
+        });
 });
 
 module.exports = router;

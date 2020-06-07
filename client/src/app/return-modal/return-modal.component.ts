@@ -30,16 +30,22 @@ export class ReturnModalComponent implements OnInit {
 
   ngOnInit() {
   }
+
+
   returnListing() {
-    this.http.post('http://localhost:3000/api/addListing', this.returnedListing).subscribe((response) => {
+    this.http.post('http://localhost:3000/api/listings/new', this.returnedListing).subscribe((response) => {
       this.response = response;
       console.log(response);
     })
     this.deleteListing(this.partnersListing.listID);
   }
 
+  delListings() {
+    this.deleteListing(this.partnersListing.listID)
+  }
+
   deleteListing = id => {
-    this.http.delete(`http://localhost:3000/api/deleteManagerListing/${id}`).subscribe((response) => {
+    this.http.delete(`http://localhost:3000/api/problem-variationsListing/delete/${id}`).subscribe((response) => {
       this.response = response;
       console.log(this.response);
       window.location.reload();

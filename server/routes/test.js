@@ -31,17 +31,4 @@ router.put('/:id', async (req, res) => {
         });
 })
 
-// router.get("/:id", async (req, res) => {
-//     try {
-//         // тут нет у тебя функции findById, и тут в принципе не нужны опшены внутри
-//         const ListingByID = await Listing.findByPk(parseInt(req.params.id));
-//         res.send(ListingByID);
-//     } catch (err) {
-//         res.status(500).json({
-//             error: "An error occurred while trying to get listings"
-//         });
-//         console.log(err);
-//     }
-// });
-
 module.exports = router;

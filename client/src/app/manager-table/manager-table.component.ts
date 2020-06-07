@@ -95,7 +95,7 @@ export class ManagerTableComponent implements OnInit {
 
 
   getProblemsListings() {
-    this.http.get('http://localhost:3000/api/getManagerListings').subscribe((data: any) => {
+    this.http.get('http://localhost:3000/api/problem-variationsListing/all').subscribe((data: any) => {
       this.managerListing = data;
       this.dataSource = new MatTableDataSource(data);
       console.log(data);

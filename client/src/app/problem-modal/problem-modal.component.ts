@@ -42,7 +42,7 @@ export class ProblemModalComponent implements OnInit {
   }
 
   sendProblem() {
-    this.http.post('http://localhost:3000/api/managerListing', this.partnersListing).subscribe((response) => {
+    this.http.post('http://localhost:3000/api/problem-variationsListing/new', this.partnersListing).subscribe((response) => {
       this.response = response;
       console.log(response);
     })
@@ -50,7 +50,7 @@ export class ProblemModalComponent implements OnInit {
   }
 
   deleteListing = id => {
-    this.http.delete(`http://localhost:3000/api/deleteGluedListing/${id}`).subscribe((response) => {
+    this.http.delete(`http://localhost:3000/api/variation-listings/delete/${id}`).subscribe((response) => {
       this.response = response;
       console.log(this.response);
       window.location.reload();

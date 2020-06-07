@@ -1,48 +1,42 @@
 const express = require("express");
 const router = express.Router();
-const createListing = require("./createListing");
-const getListing = require("./getListing");
+const listingRoutes = require("./listing-routes");
+
 const regEmployee = require('./regEmployee')
 const login = require('./Login')
-const partnersListing = require('./PartnersListing');
-const managerListing = require('./managerListing')
-const getGluedListing = require('./getGluedListing');
+const variationListingsRoutes = require('./variationListings-routes');
+const problemVariationListingsRoutes = require('./problem-variationsListing-routes')
+
 const profile = require('./Profile')
-const deleteListing = require('./deleteListing')
-const deleteGluedListing = require('./deletePartners')
-const getManagerListings = require('./getManagerListing')
-const deleteManagerListing = require('./deleteManagerListing');
-const addPermittedBrand = require('./addBrand');
-const addBannedBrand = require('./bannedBrand');
-const getPermittedBrand = require('./getAllowedBrand');
-const deleteAllowedBrand = require('./deleteAllowedBrand');
-const getBannedBrand = require('./getBannedBrand');
+
+const addPermittedBrand = require('./brand-routes');
+const addBannedBrand = require('./bannedBrand-routes');
+
+// const getBannedBrand = require('./getBannedBrand');
 
 
 
-//
+// NEW
+router.use("/listings", listingRoutes); //office-manager
+router.use('/brands', addPermittedBrand); //searcher
+router.use('/variation-listings', variationListingsRoutes) //office-manager
+router.use('/problem-variationsListing', problemVariationListingsRoutes) //manager
+// NEW
 
-/* POST REQUESTS*/
-router.use("/addListing", createListing);
+
+
 router.use('/registration', regEmployee);
-router.use('/joinListing', partnersListing);
-router.use('/gluedListing', getGluedListing);
+
+// router.use('/gluedListing', getGluedListing);
 router.use('/login', login);
 router.use('/profile', profile);
-router.use('/managerListing', managerListing);
-router.use('/addBrand', addPermittedBrand);
 router.use('/bannedBrand', addBannedBrand)
-router.use('/deleteAllowedBrand', deleteAllowedBrand);
+// router.use('/getBannedBrand', getBannedBrand);
 
-/* POST REQUESTS*/
 
-/*GET REQUESTS */
-router.use("/getListings", getListing);
-router.use('/getManagerListings', getManagerListings);
-router.use('/deleteListing', deleteListing);
-router.use('/deleteGluedListing', deleteGluedListing);
-router.use('/deleteManagerListing', deleteManagerListing);
-router.use('/allowedBrand', getPermittedBrand);
-router.use('/getBannedBrand', getBannedBrand);
-/*GET REQUESTS */
+
+
+
+
+
 module.exports = router;

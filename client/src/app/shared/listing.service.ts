@@ -32,7 +32,19 @@ export class ListingService {
 
   addListing(listings: Listings) {
     return this.http
-      .post('http://localhost:3000/api/addListing', listings);
+      .post('http://localhost:3000/api/listings/new', listings);
+  };
+
+
+  getListing() {
+    return this.http.get(`${ListingService.url}/listings/all`).
+      pipe(
+        map((data: Listings[]) => {
+          return data;
+        }), catchError(error => {
+          return error
+        })
+      )
   }
 
   addGluedListing(gluedListing: GluedListings) {
@@ -43,21 +55,12 @@ export class ListingService {
 
   addManagerListing(managerListing: GluedListings) {
     return this.http
-      .post(`http://localhost:3000/api/managerListing`, managerListing)
+      .post(`http://localhost:3000/api/variation-listings`, managerListing)
   }
 
-  getListing() {
-    return this.http.get(`${ListingService.url}/getListings`).
-      pipe(
-        map((data: Listings[]) => {
-          return data;
-        }), catchError(error => {
-          return error
-        })
-      )
-  }
+
   getBrand() {
-    return this.http.get(`${ListingService.url}/allowedBrand`).
+    return this.http.get(`${ListingService.url}/brands/all`).
       pipe(
         map((data: allowedBrand[]) => {
           return data;
@@ -68,7 +71,7 @@ export class ListingService {
   }
 
   getGluedListing() {
-    return this.http.get(`${ListingService.url}/gluedListing`).
+    return this.http.get(`${ListingService.url}/variation-listings/all`).
       pipe(
         map((data: GluedListings[]) => {
           return data;
@@ -80,7 +83,7 @@ export class ListingService {
 
 
   getBannedBrand() {
-    return this.http.get(`${ListingService.url}/getBannedBrand`).
+    return this.http.get(`${ListingService.url}/bannedBrand/all`).
       pipe
       (map((data: bannedBrand[]) => {
         return data;
