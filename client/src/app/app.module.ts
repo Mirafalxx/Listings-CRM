@@ -34,6 +34,10 @@ import { BanBrandModalComponent } from './ban-brand-modal/ban-brand-modal.compon
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { TestThingsComponent } from './test-things/test-things.component';
 import { MatIconModule } from '@angular/material/icon';
+import { CalendarComponent } from './calendar/calendar.component';
+import { OrganizerComponent } from './organizer/organizer.component';
+import { SelectorComponent } from './selector/selector.component'
+
 
 
 
@@ -58,6 +62,9 @@ import { MatIconModule } from '@angular/material/icon';
     BannedComponent,
     BanBrandModalComponent,
     TestThingsComponent,
+    CalendarComponent,
+    OrganizerComponent,
+    SelectorComponent
   ],
   imports: [
     BrowserModule,

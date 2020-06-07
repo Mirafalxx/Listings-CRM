@@ -1,42 +1,3 @@
-/* .inner-width {
-  max-width: 1000px;
-  padding: 0 10px;
-  margin: auto;
-}
-
-.navigation-menu {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 90px;
-}
-
-.navigation-menu a {
-  text-transform: uppercase;
-  color: #ffffff;
-  font-size: 15px;
-  text-decoration: none;
-  padding: 12px 30px;
-  border-radius: 4px;
-  transition: .4s linear;
-}
-
-.navigation-menu i {
-  margin-right: 8px;
-  font-size: 1px;
-}
-
-.navigation-menu a:hover {
-  background-color: #ffffff;
-  color: #2f3640;
-  border: none;
-  transform: scale(1.2);
-} */
-
-
-
-
-
 .menu:hover .menu__link:not(:hover) {
   color: #ffffff;
 }
@@ -80,7 +41,6 @@
   outline: 2px solid #fff;
 }
 
-/* hover animation */
 
 .menu__link {
   position: relative;
@@ -121,54 +81,8 @@ a.active {
   color: #FFBB55;
   border-left: 1px solid white;
   border-right: 1px solid white;
-
-  /* border: 0px 1px 0px 1px solid white; */
 }
 
-/*
-=====
-DEMO
-=====
-*/
-
-/* @media (min-width: 768px) {
-
-  html {
-    font-size: 62.5%;
-  }
-}
-
-@media (max-width: 767px) {
-
-  html {
-    font-size: 50%;
-  }
-}
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
-  font-size: 1.6rem;
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.page {
-  box-sizing: border-box;
-  max-width: 100%;
-  width: 100%;
-
-
-  order: 1;
-  margin: auto;
-} */
-
-/*
-=====
-LinkedIn
-=====
-*/
 
 .linkedin {
   width: 100%;
@@ -193,4 +107,77 @@ LinkedIn
 
 .linkedin__link {
   color: #ff5c5c;
+}
+
+
+
+a {
+  color: #dc3545;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #666;
+}
+
+ul {
+  list-style: none;
+}
+
+input {
+  display: block;
+  width: 100%;
+  padding: 0.4rem;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+  outline: none;
+  margin-bottom: 0.5rem;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  overflow: hidden;
+  padding: 0 2rem;
+}
+
+table th {
+  background: #f4f4f4;
+}
+
+.btn {
+  display: inline-block;
+  background: #f4f4f4;
+  color: #333;
+  padding: 0.4rem 1.3rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  transition: opacity 0.2s;
+  outline: none;
+}
+
+.btn:disabled {
+  background: #333;
+  color: #fff;
+  cursor: not-allowed;
+}
+
+.btn:hover:not(:disabled) {
+  opacity: 0.8;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.btn-primary {
+  background: #dc3545;
+  color: #fff;
+}
+
+.text-center {
+  text-align: center;
 }

@@ -106,7 +106,6 @@ export class AuthenticationService {
   public login(user: TokenPayload): Observable<any> {
 
     const base = this.http.post(`http://localhost:3000/api/login`, user);
-
     const request = base.pipe(
       map((data: TokenResponse) => {
         if (data.token) {

@@ -19,7 +19,7 @@ import { TestThingsComponent } from './test-things/test-things.component';
 // canActivate: [AuthGuardService]
 
 const routes: Routes = [
-  { path: '1', component: TestThingsComponent, canActivate: [AuthGuardService] },
+  { path: '1', component: TestThingsComponent },
   { path: '', component: AddAsinComponent },
   { path: 'join-asin', component: JoinAsinComponent },
   { path: 'split-asin', component: SplitAsinComponent },

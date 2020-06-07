@@ -18,6 +18,9 @@
         <a class="menu__link" routerLink="/brand-status" routerLinkActive="active">Brand</a>
       </li>
       <li class="menu__group">
+        <a class="menu__link" routerLink="/1" routerLinkActive="active">Statistics</a>
+      </li>
+      <li class="menu__group">
         <a class="menu__link" *ngIf="!auth.isLoggedIn()" routerLink="/authorization">Authorization</a>
         <a class="menu__link" routerLink="" *ngIf="auth.isLoggedIn()" (click)="auth.logOut()">Logout</a>
       </li>
