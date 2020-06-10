@@ -10,12 +10,13 @@ const {
 router.use(cors());
 process.env.SECRET_KEY = 'secret'
 
-router.post('/registration', (req, res) => {
+router.post('/reg', (req, res) => {
     const today = new Date();
 
     const userData = {
         email: req.body.email,
         password: req.body.password,
+        role: req.body.role,
         created: today
     }
 
