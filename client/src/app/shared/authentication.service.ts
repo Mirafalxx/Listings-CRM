@@ -66,16 +66,19 @@ export class AuthenticationService {
       return null;
     }
   }
-  public isLoggedIn() {
-    const user = this.getUserDetails();
-    if (user) {
-      return user.exp > Date.now() / 1000;
-    }
-    else {
-      return false
-    }
+  // public isLoggedIn() {
+  //   const user = this.getUserDetails();
+  //   if (user) {
+  //     return user.exp > Date.now() / 1000;
+  //   }
+  //   else {
+  //     return false
+  //   }
+  // }
 
-    // this.loggedIn.asObservable
+  get isLoggedIn(): boolean {
+    let authToken = localStorage.getItem('userToken');
+    return (authToken !== null) ? true : false
   }
 
   public register(user: TokenPayload): Observable<any> {
