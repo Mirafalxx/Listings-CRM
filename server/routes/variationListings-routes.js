@@ -2,7 +2,7 @@
 const express = require("express");
 const router = express.Router();
 const {
-    gluedListing
+    variationListing
 } = require("../models");
 
 // request-запроc response -ответ
@@ -16,7 +16,7 @@ router.post("/new", async (req, res) => {
             NewName
         } = req.body;
         if (OriginalAsin && OriginalName && NewAsin && NewName) {
-            const response = await gluedListing.create({
+            const response = await variationListing.create({
                 OriginalAsin,
                 OriginalName,
                 NewAsin,
@@ -43,8 +43,8 @@ router.post("/new", async (req, res) => {
 
 router.get("/all", async (req, res) => {
     try {
-        const gluedListings = await gluedListing.findAll();
-        res.send(gluedListings);
+        const variationListings = await variationListing.findAll();
+        res.send(variationListings);
 
     } catch (err) {
         res.status(500).json({
@@ -57,7 +57,7 @@ router.get("/all", async (req, res) => {
 router.get("/all/:id", async (req, res) => {
     try {
 
-        const variationsID = await gluedListing.findByPk(parseInt(req.params.id));
+        const variationsID = await variationListing.findByPk(parseInt(req.params.id));
         res.send(variationsID);
     } catch (err) {
         res.status(500).json({
@@ -71,7 +71,7 @@ router.get("/all/:id", async (req, res) => {
 router.delete("/delete/:id", async (req, res) => {
     const id = req.params.id;
 
-    await gluedListing.destroy({
+    await variationListing.destroy({
             where: {
                 id: id
             }
@@ -79,19 +79,20 @@ router.delete("/delete/:id", async (req, res) => {
         .then(num => {
             if (num == 1) {
                 res.send({
-                    message: "Partners listing was deleted successfully!"
+                    message: "Glued Listing was deleted successfully!"
                 });
             } else {
                 res.send({
-                    message: `Cannot delete Listing with id=${id}. Maybe Listing was not found!`
+                    message: `Cannot delete Glued Listing with id=${id}. Maybe Listing was not found!`
                 });
             }
         })
         .catch(err => {
             res.status(500).send({
-                message: "Could not delete Tutorial with id=" + id
+                message: "Could not delete Listing with id=" + id
             });
         });
 });
+
 
 module.exports = router;

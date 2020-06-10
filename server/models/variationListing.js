@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = (sequelize, dataTypes) => {
-    const gluedListing = sequelize.define('gluedListing', {
+    const variationListing = sequelize.define('variationListing', {
         OriginalAsin: {
             type: dataTypes.STRING(255),
             allowNull: false
@@ -22,5 +22,5 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false
     });
 
-    return gluedListing;
+    return variationListing;
 };

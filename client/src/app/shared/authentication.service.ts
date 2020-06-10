@@ -14,6 +14,7 @@ export interface UserDetails {
   exp: number
   iat: number
 }
+
 interface TokenResponse {
   token: string
 }
@@ -32,14 +33,9 @@ export class AuthenticationService {
   private token: string
   private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
-
-
   get isALoggedIn() {
     return this.loggedIn.asObservable(); // {2}
   }
-
-
-
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -50,7 +46,6 @@ export class AuthenticationService {
     localStorage.setItem('userToken', token)
     this.token = token
   }
-
 
   private getToken(): string {
     if (!this.token) {
@@ -71,8 +66,6 @@ export class AuthenticationService {
       return null;
     }
   }
-
-
   public isLoggedIn() {
     const user = this.getUserDetails();
     if (user) {
@@ -89,7 +82,6 @@ export class AuthenticationService {
 
     const base = this.http.post(`/api/registration`, user);
 
-
     const request = base.pipe(
       map((data: TokenResponse) => {
         if (data.token) {
@@ -105,7 +97,7 @@ export class AuthenticationService {
 
   public login(user: TokenPayload): Observable<any> {
 
-    const base = this.http.post(`http://localhost:3000/api/login`, user);
+    const base = this.http.post(`http://localhost:3000/api/auth/login`, user);
     const request = base.pipe(
       map((data: TokenResponse) => {
         if (data.token) {

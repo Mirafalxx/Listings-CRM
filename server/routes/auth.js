@@ -8,10 +8,9 @@ const {
 } = require("../models");
 
 router.use(cors());
-
 process.env.SECRET_KEY = 'secret'
 
-router.post('', (req, res) => {
+router.post('/registration', (req, res) => {
     const today = new Date();
 
     const userData = {
@@ -48,16 +47,13 @@ router.post('', (req, res) => {
             }
         })
         .catch(err => {
-            res.send('error', err) //тик так
+            res.send('error', err)
         })
 
 })
 
 
-
-
-// login-
-router.post('', (req, res) => {
+router.post('/login', (req, res) => {
     User.findOne({
             where: {
                 email: req.body.email
@@ -79,5 +75,7 @@ router.post('', (req, res) => {
             res.send('error', err)
         })
 })
+
+
 
 module.exports = router;

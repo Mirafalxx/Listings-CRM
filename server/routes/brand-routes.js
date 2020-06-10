@@ -2,7 +2,7 @@
 let express = require("express");
 let router = express.Router();
 let {
-    permittedBrand
+    allowedBrand
 } = require("../models");
 
 router.post("/new", async (req, res) => {
@@ -12,7 +12,7 @@ router.post("/new", async (req, res) => {
 
         } = req.body;
         if (Brand) {
-            const response = await permittedBrand.create({
+            const response = await allowedBrand.create({
                 Brand
             });
 
@@ -37,8 +37,8 @@ router.post("/new", async (req, res) => {
 
 router.get("/all", async (req, res) => {
     try {
-        const permittedBrands = await permittedBrand.findAll();
-        res.send(permittedBrands);
+        const allowedBrands = await allowedBrand.findAll();
+        res.send(allowedBrands);
 
     } catch (err) {
         res.status(500).json({
@@ -50,7 +50,7 @@ router.get("/all", async (req, res) => {
 router.delete("/delete/:id", async (req, res) => {
     const id = req.params.id;
 
-    await permittedBrand.destroy({
+    await allowedBrand.destroy({
             where: {
                 id: id
             }

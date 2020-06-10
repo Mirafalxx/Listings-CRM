@@ -2,23 +2,8 @@
 let express = require("express");
 let router = express.Router();
 let {
-    bannedBrand
+    forbiddenBrand
 } = require("../models");
-
-
-
-router.get("/all", async (req, res) => {
-    try {
-        const bannedBrands = await bannedBrand.findAll();
-        res.send(bannedBrands);
-
-    } catch (err) {
-        res.status(500).json({
-            error: "An error occurred while trying to get  listings"
-        });
-    }
-});
-
 
 
 router.post("", async (req, res) => {
@@ -28,7 +13,7 @@ router.post("", async (req, res) => {
             Status,
         } = req.body;
         if (Brand && Status) {
-            const response = await bannedBrand.create({
+            const response = await forbiddenBrand.create({
                 Brand,
                 Status
             });
@@ -46,6 +31,17 @@ router.post("", async (req, res) => {
         console.error("error:", error);
         res.status(500).send({
             error: "An error occurred while trying to add brand"
+        });
+    }
+});
+router.get("/all", async (req, res) => {
+    try {
+        const bannedBrands = await forbiddenBrand.findAll();
+        res.send(bannedBrands);
+
+    } catch (err) {
+        res.status(500).json({
+            error: "An error occurred while trying to get  listings"
         });
     }
 });

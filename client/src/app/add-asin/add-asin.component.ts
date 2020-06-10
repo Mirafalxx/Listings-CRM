@@ -70,7 +70,7 @@ export class AddAsinComponent implements OnInit {
       this.openSnackBar();
 
     }, err => console.error(err));
-    window.location.reload();
+    // window.location.reload();
 
   }
   getBannedBrands() {

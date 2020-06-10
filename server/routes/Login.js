@@ -11,9 +11,6 @@ router.use(cors());
 
 process.env.SECRET_KEY = 'secret'
 
-
-
-// login-
 router.post('', (req, res) => {
     User.findOne({
             where: {

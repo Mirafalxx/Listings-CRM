@@ -22,7 +22,6 @@ router.post("/new", async (req, res) => {
         ProductName,
         Brand,
         Partner
-
       });
 
       if (response) res.status(200).send({
@@ -58,8 +57,8 @@ router.get("/all", async (req, res) => {
 router.get("/all/:id", async (req, res) => {
   try {
 
-    const listingID = await Listing.findByPk(parseInt(req.params.id));
-    res.send(listingID);
+    const ListingsID = await Listing.findByPk(parseInt(req.params.id));
+    res.send(ListingsID);
   } catch (err) {
     res.status(500).json({
       error: "An error occurred while trying to get list of  songs by id"
