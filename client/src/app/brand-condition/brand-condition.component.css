@@ -3,8 +3,11 @@
   margin-left: 30px;
 }
 
-.example-card {
-  width: 290px;
+.add-brand-form {
+  width: 340px;
+  margin-top: 30px;
+  margin-left: 30px;
+  border: 1px solid #3D405C;
 }
 
 
@@ -30,4 +33,31 @@ table {
   font-weight: 700;
   color: #000000;
   font-size: 15px;
+}
+
+.mira {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.router-btn {
+  background-color: #3D405C;
+  border-radius: 10px;
+  color: #ffffff;
+  padding: 15px 94px;
+  margin-left: 50px;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+a.active {
+  color: #FFBB55;
+}
+
+.myForm {
+  margin-top: 30px;
+}
+
+.add-brand-btn {
+  padding: 0 50px;
 }

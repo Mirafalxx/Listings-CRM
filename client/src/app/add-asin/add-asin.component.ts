@@ -74,7 +74,7 @@ export class AddAsinComponent implements OnInit {
 
   }
   getBannedBrands() {
-    this.listingService.getBannedBrand().subscribe((data: any) => {
+    this.listingService.getforbiddenBrand().subscribe((data: any) => {
       this.response = data;
       console.log(this.response);
     })

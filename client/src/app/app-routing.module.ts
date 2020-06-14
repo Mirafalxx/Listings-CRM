@@ -12,11 +12,12 @@ import { AuthGuardService } from './shared/auth-guard.service';
 import { BrandConditionComponent } from './brand-condition/brand-condition.component';
 import { BannedComponent } from './banned/banned.component';
 import { TestThingsComponent } from './test-things/test-things.component';
+import { AllowedBrandComponent } from './allowed-brand/allowed-brand.component';
+import { ForbiddenBrandComponent } from './forbidden-brand/forbidden-brand.component';
 
 
 
 
-// 
 
 const routes: Routes = [
   { path: '1', component: TestThingsComponent },
@@ -26,7 +27,15 @@ const routes: Routes = [
   { path: 'authorization', component: AuthorizationComponent },
   { path: 'partnersTable', component: PartnerTableComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'brand-status', component: BrandConditionComponent },
+  {
+    path: 'brand-status',
+    component: BrandConditionComponent,
+    children: [
+      { path: 'forbidden', component: ForbiddenBrandComponent },
+      { path: 'allowed', component: AllowedBrandComponent }
+    ]
+
+  },
   { path: 'manager-table', component: ManagerTableComponent },
   { path: 'banned', component: BannedComponent },
   { path: '**', component: PageNotFoundComponent },
@@ -37,3 +46,17 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+export const routingComponent = [
+  TestThingsComponent,
+  AddAsinComponent,
+  JoinAsinComponent,
+  SplitAsinComponent,
+  AuthorizationComponent,
+  PartnerTableComponent,
+  ProfileComponent,
+  BrandConditionComponent,
+  ForbiddenBrandComponent,
+  ManagerTableComponent,
+  BannedComponent,
+  PageNotFoundComponent
+]

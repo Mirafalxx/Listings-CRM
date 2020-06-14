@@ -12,14 +12,18 @@ export class ProfileComponent implements OnInit {
 
   constructor(private auth: AuthenticationService) { }
 
+
+
   ngOnInit() {
     this.auth.profile().subscribe(
       user => {
         this.details = user
+        // this.lol(this.details.role === 'admin')
       },
       err => {
         console.error(err)
       }
     )
+
   }
 }

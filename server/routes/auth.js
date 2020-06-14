@@ -6,6 +6,9 @@ const bcrypt = require('bcrypt')
 const {
     User
 } = require("../models");
+const {
+    route
+} = require("./listing-routes");
 
 router.use(cors());
 process.env.SECRET_KEY = 'secret'
@@ -75,6 +78,18 @@ router.post('/login', (req, res) => {
         .catch(err => {
             res.send('error', err)
         })
+});
+
+router.get('/all', async (req, res) => {
+    try {
+        const Users = await User.findAll();
+        res.send(Users);
+
+    } catch (err) {
+        res.status(500).json({
+            error: "An error occurred while trying to get  listings"
+        });
+    }
 })
 
 

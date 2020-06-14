@@ -36,7 +36,9 @@ import { TestThingsComponent } from './test-things/test-things.component';
 import { MatIconModule } from '@angular/material/icon';
 import { CalendarComponent } from './calendar/calendar.component';
 import { OrganizerComponent } from './organizer/organizer.component';
-import { SelectorComponent } from './selector/selector.component'
+import { SelectorComponent } from './selector/selector.component';
+import { AllowedBrandComponent } from './allowed-brand/allowed-brand.component';
+import { ForbiddenBrandComponent } from './forbidden-brand/forbidden-brand.component'
 
 
 
@@ -64,7 +66,9 @@ import { SelectorComponent } from './selector/selector.component'
     TestThingsComponent,
     CalendarComponent,
     OrganizerComponent,
-    SelectorComponent
+    SelectorComponent,
+    AllowedBrandComponent,
+    ForbiddenBrandComponent
   ],
   imports: [
     BrowserModule,

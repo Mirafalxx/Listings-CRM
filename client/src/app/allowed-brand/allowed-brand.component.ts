@@ -12,22 +12,17 @@ import { bannedBrand } from '../ListingInfo/bannedBrand';
 import { Router, ActivatedRoute } from '@angular/router';
 
 
-
-
-
 interface Condition {
   value: string;
   viewValue: string;
 }
 
-
-
 @Component({
-  selector: 'app-brand-condition',
-  templateUrl: './brand-condition.component.html',
-  styleUrls: ['./brand-condition.component.css']
+  selector: 'app-allowed-brand',
+  templateUrl: './allowed-brand.component.html',
+  styleUrls: ['./allowed-brand.component.css']
 })
-export class BrandConditionComponent implements OnInit {
+export class AllowedBrandComponent implements OnInit {
 
   myForm: FormGroup;
   constructor(private route: ActivatedRoute, private http: HttpClient, private _snackBar: MatSnackBar, private listingServices: ListingService, public dialog: MatDialog, public router: Router) { }
@@ -113,8 +108,6 @@ export class BrandConditionComponent implements OnInit {
       console.log(result);
     });
   }
-
-
 
 
 

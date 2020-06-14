@@ -1,57 +1,28 @@
 <form [formGroup]="myForm">
-  <mat-card class="example-card">
+  <mat-card class="add-brand-form">
     <div class="example-container">
       <h2>Добавить Бренд </h2>
-      <mat-form-field appearance="fill">
+      <mat-form-field>
         <mat-label>Brand</mat-label>
         <input matInput placeholder="Command" autocomplete="off" formControlName="Brand">
+
       </mat-form-field>
       <br>
       <br>
-      <button mat-raised-button color="primary" (click)='addBrand()'>Добавить</button>
+      <button mat-raised-button color="primary" (click)='addBrand()' class="add-brand-btn">Добавить</button>
     </div>
   </mat-card>
 </form>
 
-<div class="table-wrapper">
-
-  <div class="allowed-brand">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-      <ng-container matColumnDef="Brand">
-        <th mat-header-cell *matHeaderCellDef> Бренд </th>
-        <td mat-cell *matCellDef="let element"> {{element.Brand}} </td>
-      </ng-container>
-      <ng-container matColumnDef="Status">
-        <th mat-header-cell *matHeaderCellDef> </th>
-        <td mat-cell *matCellDef="let element"> <button mat-flat-button color="warn" class="btn-prob"
-            (click)="openDialog()">Забанить
-          </button></td>
-      </ng-container>
 
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClicked(row)"></tr>
-    </table>
-  </div>
-
-
-  <div class="bannedBrand">
-    <table mat-table [dataSource]="dataSource2" class="mat-elevation-z8">
-      <ng-container matColumnDef="Brand">
-        <th mat-header-cell *matHeaderCellDef class="table-head"> Список запрещенных брендов </th>
-        <td mat-cell *matCellDef="let element" class="banned-brand-row"> {{element.Brand}} </td>
-      </ng-container>
-      <ng-container matColumnDef="Status">
-        <th mat-header-cell *matHeaderCellDef> </th>
-        <td mat-cell *matCellDef="let element"></td>
-      </ng-container>
-
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClicked(row)"></tr>
-    </table>
-
-  </div>
-
+<div class="mira">
+  <a mat-tab-link routerLinkActive="active" routerLink="/brand-status/allowed" class="router-btn">
+    Разрешенные
+  </a>
+  <a mat-tab-link routerLinkActive="active" routerLink="/brand-status/forbidden" class="router-btn">
+    Запрещенные
+  </a>
 
 </div>
+<router-outlet></router-outlet>

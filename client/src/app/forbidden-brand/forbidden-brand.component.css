@@ -1,0 +1,38 @@
+.example-container {
+  margin-top: 40px;
+  margin-left: 30px;
+}
+
+.example-card {
+  width: 290px;
+}
+
+
+table {
+  width: 450px;
+  margin-top: 30px;
+}
+
+.table-wrapper {
+  display: flex;
+}
+
+/* .bannedBrand {
+  margin-left: 200px;
+} */
+
+.banned-brand-row {
+  color: red;
+}
+
+.table-head {
+  text-align: center;
+  font-weight: 700;
+  color: #000000;
+  font-size: 15px;
+}
+
+.forbidden-brand-wrapper {
+  margin: 0 auto;
+  width: 500px;
+}

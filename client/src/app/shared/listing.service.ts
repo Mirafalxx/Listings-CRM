@@ -82,7 +82,7 @@ export class ListingService {
   }
 
 
-  getBannedBrand() {
+  getforbiddenBrand() {
     return this.http.get(`${ListingService.url}/bannedBrand/all`).
       pipe
       (map((data: bannedBrand[]) => {

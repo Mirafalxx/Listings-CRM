@@ -11,8 +11,10 @@ export interface UserDetails {
   id: number
   email: string
   password: string
+  role: string
   exp: number
   iat: number
+
 }
 
 interface TokenResponse {
@@ -32,6 +34,7 @@ export class AuthenticationService {
 
   private token: string
   private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  private userSubject: BehaviorSubject<UserDetails>;
 
   get isALoggedIn() {
     return this.loggedIn.asObservable(); // {2}
@@ -66,15 +69,7 @@ export class AuthenticationService {
       return null;
     }
   }
-  // public isLoggedIn() {
-  //   const user = this.getUserDetails();
-  //   if (user) {
-  //     return user.exp > Date.now() / 1000;
-  //   }
-  //   else {
-  //     return false
-  //   }
-  // }
+
 
   get isLoggedIn(): boolean {
     let authToken = localStorage.getItem('userToken');

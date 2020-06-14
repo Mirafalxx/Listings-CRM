@@ -19,6 +19,7 @@
       </li>
       <li class="menu__group">
         <a class="menu__link" routerLink="/1" routerLinkActive="active">Statistics</a>
+        <!-- <-*ngIf=details?.role-> -->
       </li>
       <li class="menu__group">
         <a class="menu__link" *ngIf="!this.auth.isLoggedIn" routerLink="/authorization">Authorization</a>
