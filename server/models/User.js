@@ -17,6 +17,9 @@ module.exports = (sequelize, dataTypes) => {
         role: {
             type: dataTypes.STRING,
         },
+        department: {
+            type: dataTypes.STRING,
+        },
         created: {
             type: dataTypes.DATE,
             defaultValue: dataTypes.NOW

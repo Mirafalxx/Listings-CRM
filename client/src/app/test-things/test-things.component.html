@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <header>
     <app-selector></app-selector>
   </header>
@@ -10,4 +10,47 @@
   <div>
     <app-organizer></app-organizer>
   </div>
-</div>
+</div> -->
+<form [formGroup]="addAsinFrom" (ngSubmit)="addStat()">
+  <div class="container-contact2">
+    <div class="wrap-contact2">
+      <span class="contact2-form-title">
+        Отправление Статистики
+      </span>
+
+      <mat-form-field class="example-full-width asin-input">
+        <mat-label>Имя Работника</mat-label>
+        <input matInput formControlName="name" [ngClass]="{ 'is-invalid': submitted && f.ProductASIN.errors }"
+          autocomplete="off">
+      </mat-form-field>
+      <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+        <mat-label *ngIf="f.name.errors.required">Введите ASIN</mat-label>
+      </div>
+
+
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Количество вариаций</mat-label>
+        <input matInput autocomplete="off" formControlName="count">
+      </mat-form-field>
+      <div *ngIf="submitted && f.ProductName.errors" class="invalid-feedback">
+        <mat-label *ngIf="f.ProductName.errors.required">Введите количество вариаций</mat-label>
+      </div>
+
+      <mat-form-field class="example-full-width asin-input">
+        <mat-label>Отдел</mat-label>
+        <input matInput formControlName="department" [ngClass]="{ 'is-invalid': submitted && f.ProductASIN.errors }"
+          autocomplete="off">
+      </mat-form-field>
+
+      <div class=" container-contact2-form-btn">
+        <div class="wrap-contact2-form-btn">
+          <div class="contact2-form-bgbtn"></div>
+          <button class="contact2-form-btn btn">
+            Отправить
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

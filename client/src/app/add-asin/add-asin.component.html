@@ -38,8 +38,10 @@
         Партнера?
       </mat-checkbox>
 
-      <mat-form-field class="example-full-width" *ngIf="partnerCheckBox">
 
+
+      <mat-form-field class="example-full-width" *ngIf="partnerCheckBox">
+        <mat-label>Партнер</mat-label>
         <mat-select formControlName="Partner">
           <mat-option *ngFor="let partners of partner" [value]="partners.value">
             {{partners.viewValue}}

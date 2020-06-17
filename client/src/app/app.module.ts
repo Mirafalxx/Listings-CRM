@@ -38,7 +38,11 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { OrganizerComponent } from './organizer/organizer.component';
 import { SelectorComponent } from './selector/selector.component';
 import { AllowedBrandComponent } from './allowed-brand/allowed-brand.component';
-import { ForbiddenBrandComponent } from './forbidden-brand/forbidden-brand.component'
+import { ForbiddenBrandComponent } from './forbidden-brand/forbidden-brand.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component'
+import { MatExpansionModule } from '@angular/material/expansion';
+import { EditUserModalComponent } from './edit-user-modal/edit-user-modal.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
 
@@ -68,7 +72,9 @@ import { ForbiddenBrandComponent } from './forbidden-brand/forbidden-brand.compo
     OrganizerComponent,
     SelectorComponent,
     AllowedBrandComponent,
-    ForbiddenBrandComponent
+    ForbiddenBrandComponent,
+    AdminPanelComponent,
+    EditUserModalComponent
   ],
   imports: [
     BrowserModule,
@@ -87,13 +93,16 @@ import { ForbiddenBrandComponent } from './forbidden-brand/forbidden-brand.compo
     MatFormFieldModule,
     MatCheckboxModule,
     MatIconModule,
+    MatExpansionModule,
+    MatDatepickerModule
   ],
   entryComponents: [
     ModalWindowComponent,
     ToastrComponent,
     ProblemModalComponent,
     ReturnModalComponent,
-    BanBrandModalComponent
+    BanBrandModalComponent,
+    EditUserModalComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,6 +7,7 @@ const problemVariationListingsRoutes = require('./problem-variationsListing-rout
 const profile = require('./Profile')
 const brandRoutes = require('./brand-routes');
 const addBannedBrand = require('./bannedBrand-routes');
+const statiscit = require('./statistic')
 
 
 // const getBannedBrand = require('./getBannedBrand');
@@ -19,6 +20,7 @@ router.use('/brands', brandRoutes); //searcher
 router.use('/variation-listings', variationListingsRoutes) //office-manager
 router.use('/problem-variationsListing', problemVariationListingsRoutes) //manager
 router.use('/auth', auth); //registration
+router.use('/stat', statiscit)
 
 // NEW
 

@@ -1,0 +1,23 @@
+.mat-dialog-content {
+  min-height: 300px;
+}
+
+
+table {
+  width: 100%;
+}
+
+.variation-form {
+  display: block;
+  width: 370px;
+}
+
+
+.btn {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.test {
+  display: block;
+}

@@ -14,13 +14,14 @@ import { BannedComponent } from './banned/banned.component';
 import { TestThingsComponent } from './test-things/test-things.component';
 import { AllowedBrandComponent } from './allowed-brand/allowed-brand.component';
 import { ForbiddenBrandComponent } from './forbidden-brand/forbidden-brand.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 
 
 
 
 
 const routes: Routes = [
-  { path: '1', component: TestThingsComponent },
+  { path: 'stat', component: TestThingsComponent },
   { path: '', component: AddAsinComponent, canActivate: [AuthGuardService] },
   { path: 'join-asin', component: JoinAsinComponent },
   { path: 'split-asin', component: SplitAsinComponent },
@@ -36,6 +37,7 @@ const routes: Routes = [
     ]
 
   },
+  { path: 'admin-panel', component: AdminPanelComponent },
   { path: 'manager-table', component: ManagerTableComponent },
   { path: 'banned', component: BannedComponent },
   { path: '**', component: PageNotFoundComponent },

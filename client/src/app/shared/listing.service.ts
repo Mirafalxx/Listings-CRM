@@ -6,6 +6,7 @@ import { Listings } from '../ListingInfo/listings';
 import { throwError, Observable } from 'rxjs';
 import { allowedBrand } from '../ListingInfo/allowedBrand';
 import { bannedBrand } from '../ListingInfo/bannedBrand'
+import { Users } from '../ListingInfo/user';
 
 
 export interface GluedListings {
@@ -16,6 +17,23 @@ export interface GluedListings {
   NewName: string
   Problem?: string
 }
+
+
+export interface Stat {
+  id?: string
+  name: string
+  count: string
+  department: string
+}
+
+
+
+// export interface User {
+//   id?: string
+//   email: string
+//   password: string
+//   role: string
+// }
 
 interface CreateResponse {
   name: string;
@@ -34,6 +52,29 @@ export class ListingService {
     return this.http
       .post('http://localhost:3000/api/listings/new', listings);
   };
+
+  addStat(stat: Stat) {
+    return this.http
+      .post('http://localhost:3000/api/stat/new', stat);
+  };
+
+
+
+  addUser(user: Users) {
+    return this.http.post('http://localhost:3000/api/auth/reg', user)
+  }
+
+
+  getUser() {
+    return this.http.get('http://localhost:3000/api/auth/all').
+      pipe(
+        map((data: Users[]) => {
+          return data;
+        }), catchError(error => {
+          return error
+        })
+      )
+  }
 
 
   getListing() {

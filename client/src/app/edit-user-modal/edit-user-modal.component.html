@@ -1,0 +1,38 @@
+<h1 mat-dialog-title>Редактировать данные пользователя</h1>
+<div mat-dialog-content>
+  <div>
+    <mat-form-field class="variation-form">
+      <mat-label>Логин</mat-label>
+      <input matInput autocomplete="off" disabled [(ngModel)]="userInfo.email">
+    </mat-form-field>
+
+    <!-- <mat-form-field class="variation-form">
+      <mat-label>Роль</mat-label>
+      <input matInput autocomplete="off" [(ngModel)]="userInfo.role">
+    </mat-form-field> -->
+
+    <mat-form-field class="example-full-width" class="test">
+      <mat-label>Отдел</mat-label>
+      <mat-select [(ngModel)]="userInfo.department">
+        <mat-option *ngFor="let departments of department" [value]="departments.value">
+          {{departments.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" class="test">
+      <mat-label>Роль</mat-label>
+      <mat-select [(ngModel)]="userInfo.role">
+        <mat-option *ngFor="let roles of role" [value]="roles.value">
+          {{roles.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-flat-button color="primary" class="btn" (click)='editUser()'>Изменить</button>
+</div>
+<div mat-dialog-actions>
+  <button mat-flat-button color="warn" class="btn" (click)='deleteUser()'>Удалить</button>
+</div>

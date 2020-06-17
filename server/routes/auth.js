@@ -6,9 +6,7 @@ const bcrypt = require('bcrypt')
 const {
     User
 } = require("../models");
-const {
-    route
-} = require("./listing-routes");
+
 
 router.use(cors());
 process.env.SECRET_KEY = 'secret'
@@ -20,6 +18,7 @@ router.post('/reg', (req, res) => {
         email: req.body.email,
         password: req.body.password,
         role: req.body.role,
+        department: req.body.department,
         created: today
     }
 
@@ -92,6 +91,58 @@ router.get('/all', async (req, res) => {
     }
 })
 
+router.delete("/delete/:id", async (req, res) => {
+    const id = req.params.id;
+
+    await User.destroy({
+            where: {
+                id: id
+            }
+        })
+        .then(num => {
+            if (num == 1) {
+                res.send({
+                    message: "User was deleted successfully!"
+                });
+            } else {
+                res.send({
+                    message: `Cannot User Listing with id=${id}. Maybe User was not found!`
+                });
+            }
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: "Could not delete User with id=" + id
+            });
+        });
+});
+
+
+router.put('/update/:id', async (req, res) => {
+    const id = req.params.id;
+
+    User.update(req.body, {
+            where: {
+                id: id
+            }
+        })
+        .then(num => {
+            if (num == 1) {
+                res.send({
+                    message: "Listings was updated successfully."
+                });
+            } else {
+                res.send({
+                    message: `Cannot update Listing with id=${id}. Maybe Listing was not found or req.body is empty!`
+                });
+            }
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: "Error updating Listing with id=" + id
+            });
+        });
+})
 
 
 module.exports = router;

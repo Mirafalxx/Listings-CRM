@@ -24,6 +24,7 @@ a:hover {
 .mat-row td,
 a {
   color: #3f80ff !important;
+  padding: 30px;
 }
 
 .clipboard {

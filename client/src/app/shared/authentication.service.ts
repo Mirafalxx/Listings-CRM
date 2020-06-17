@@ -12,6 +12,7 @@ export interface UserDetails {
   email: string
   password: string
   role: string
+  department: string
   exp: number
   iat: number
 
