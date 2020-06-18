@@ -8,22 +8,23 @@
       <li class="menu__group">
         <a class="menu__link" routerLink="/join-asin" routerLinkActive="active">Join Asin</a>
       </li>
-      <li class="menu__group">
+      <li class="menu__group" *ngIf=details?.role>
         <a class="menu__link" routerLink="/partnersTable" routerLinkActive="active">Partners table</a>
       </li>
       <li class="menu__group">
-        <a class="menu__link" routerLink="/manager-table" routerLinkActive="active">Manager Partner</a>
+        <a class="menu__link" routerLink="/manager-table" routerLinkActive="active" *ngIf=details?.role>Manager
+          Table</a>
       </li>
       <li class="menu__group">
         <a class="menu__link" routerLink="/brand-status" routerLinkActive="active">Brand</a>
       </li>
-      <li class="menu__group">
+      <li class="menu__group" *ngIf=details?.role>
         <a class="menu__link" routerLink="/stat" routerLinkActive="active">Statistics</a>
         <!-- <-*ngIf=details?.role-> -->
       </li>
-      <li class="menu__group">
+      <li class="menu__group" *ngIf=details?.role>
         <a class="menu__link" routerLink="/admin-panel" routerLinkActive="active">Admin panel</a>
-        <!-- <-*ngIf=details?.role-> -->
+
       </li>
       <li class="menu__group">
         <a class="menu__link" *ngIf="!this.auth.isLoggedIn" routerLink="/authorization">Authorization</a>
